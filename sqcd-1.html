@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SQCD-1 — PSYCHE</title>
+<meta name="description" content="SQCD-1 · Settlement Quality Compute Data. The record a delivered compute hour settles on. Version 1.0, issued by PSYCHE, 2026-09-03.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="PSYCHE">
+<meta property="og:title" content="SQCD-1 · Settlement Quality Compute Data">
+<meta property="og:description" content="The record a delivered compute hour settles on. Version 1.0 · 2026-09-03.">
+<meta property="og:image" content="https://psyche-0.com/assets/sqcd-1-cover.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@Undiscopurrr">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,700;1,6..96,400;1,6..96,500;1,6..96,700&family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&display=swap">
+<link rel="stylesheet" href="assets/style.css?v=20261019b">
+</head>
+<body>
+<header class="site"><div class="bar">
+  <a class="mark" href="index.html">PSYCHE</a>
+  <button class="menu" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+  <nav class="site" id="nav">
+    <a href="index.html">Overview</a>
+    <a href="missions.html">Missions</a>
+    <a href="intelligence.html">Intelligence</a>
+    <a href="sqcd-1.html" aria-current="page">SQCD-1</a>
+    <a href="paper.html">Paper</a>
+    <a href="engage.html">Engage</a>
+    <a href="about.html">Who</a>
+    <a class="zero" href="map.html">PSYCHE-0 · Map</a>
+  </nav>
+</div></header>
+
+<figure class="poster">
+  <picture>
+  <source media="(max-width:640px)" srcset="assets/sqcd-1-cover-l.jpg" width="900" height="2052">
+  <img src="assets/sqcd-1-cover.jpg" alt="SQCD-1 · Settlement Quality Compute Data. Part I, the obligation. Part II, the record. Part III, filing, divergence, and finality. The record a delivered compute hour settles on." width="2400" height="1336">
+  </picture>
+</figure>
+
+<div class="wrap" style="padding-top:72px">
+  <div class="pagehead">
+    <p class="kicker">Standard · Version 1.0 · 2026-09-03</p>
+    <h1><span class="it">SQCD-1</span></h1>
+    <p class="lede"><b>The record a delivered compute hour settles on.</b> One record covers one delivery claim over one window.</p>
+    <div class="row-cta">
+      <a class="ghost" href="assets/sqcd-1-in-brief.pdf">Brief</a>
+      <a class="ghost" href="assets/sqcd-1-settlement-quality-compute-data.pdf">Full standard</a>
+      <a class="ghost" href="https://github.com/undiscopurrr/PSYCHE-PAPER#where-this-version-lives">Schemas &amp; vectors</a>
+    </div>
+  </div>
+
+  <section>
+    <div class="sec-label"><span>Adopt it by reference</span><span>§0.1</span></div>
+    <blockquote class="quote">
+      <p>This Agreement incorporates SQCD-1, Version 1.0, identified by the digest published with it, as issued by PSYCHE, and no later version.</p>
+      <cite>Conformance is to a named version, permanently</cite>
+    </blockquote>
+  </section>
+
+  <section>
+    <div class="sec-label"><span>The clock</span><span>Business days after the window closes</span></div>
+    <div class="clock">
+      <div class="tick"><div class="w">W+2</div><div class="e">Both parties file measurements</div></div>
+      <div class="tick"><div class="w">W+5</div><div class="e">Divergence computed</div></div>
+      <div class="tick"><div class="w">W+7</div><div class="e">Delivery claim filed</div></div>
+      <div class="tick"><div class="w">W+12</div><div class="e">Counterparty decision due</div></div>
+      <div class="tick"><div class="w">W+30</div><div class="e">Correction window closes</div></div>
+      <div class="tick final"><div class="w">W+45</div><div class="e">Quantity finality</div></div>
+      <div class="tick final"><div class="w">W+90</div><div class="e">Money finality</div></div>
+    </div>
+    <p class="note" style="margin-top:18px">Section I governs. A Profile may state further recomputation passes under I.1.4, each with its own date.</p>
+  </section>
+
+  <section>
+    <div class="sec-label"><span>The record</span><span>Six field groups</span></div>
+    <div class="fields">
+      <div class="field"><span class="l">A</span><span class="t">Contract Standard</span><p>The clause the record answers to; the metric and the <b>named</b> function that turns samples into a period figure; the window; the exclusions; the thresholds; the Grade Class over nine dimensions; the verifiability tier of every field; and one digest over all of it, filed <b>before the window opens</b>.</p></div>
+      <div class="field"><span class="l">B</span><span class="t">Measurements</span><p>Channel, samples, measured subject, instrument, clock source, aggregation, and the layer the series observes at. An interval counts as delivered on every covered layer at once.</p></div>
+      <div class="field"><span class="l">C</span><span class="t">Missing Intervals</span><p>Every interval nobody observed: declared, attributed, valued. The <b>Unresolved Fraction</b> and the <b>Unilateral Fraction</b> stand on the face of the record.</p></div>
+      <div class="field"><span class="l">D</span><span class="t">Provenance</span><p>Filing party and key, source class, the independence of trust roots, and a signature over the filed set.</p></div>
+      <div class="field"><span class="l">E</span><span class="t">Temporal Binding</span><p>Signing time as claimed, and an inclusion proof against a published log head.</p></div>
+      <div class="field"><span class="l">F</span><span class="t">Claim and Decision</span><p>The delivery claim; the counterparty’s decision; the authority it was signed under. <b>The decision alone produces acceptance.</b></p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-label"><span>Completeness</span><span>§4.6</span></div>
+    <blockquote class="quote">
+      <p>Give the record to someone who was absent and holds no account on either side. If the period figure, the shortfall and the amount owed all come out, each traceable to a named field, the record is complete.</p>
+    </blockquote>
+  </section>
+
+  <section>
+    <div class="sec-label"><span>This version</span><span>Identified by digest</span></div>
+    <p>SHA-256 of <code>SQCD-1-settlement-quality-compute-data.pdf</code></p>
+    <p class="digest">163b73731b49c15b04df5d5b4a1573ccc5c6446066ba44de0c085f0b9ecc05c6</p>
+    <p class="note" style="margin-top:22px">Text under CC BY-ND 4.0. Forms, schemas and conformance vectors under a permissive licence, for lifting into code. Where this page and the standard disagree, the standard governs.</p>
+    <div class="row-cta">
+      <a class="ghost" href="engage.html">Engage</a>
+    </div>
+  </section>
+</div>
+
+<footer class="site"><div class="fw">
+  <div class="fl">
+    <span>PSYCHE · Settlement and Intelligence for contracted compute</span>
+    <span>SQCD-1 · Version 1.0 · 2026-09-03</span>
+  </div>
+  <div class="fl">
+    <a href="https://x.com/Undiscopurrr">X</a>
+    <a href="https://github.com/undiscopurrr/PSYCHE-PAPER">GitHub</a>
+    <a class="mail" href="mailto:feifei.gelato@gmail.com">feifei.gelato@gmail.com</a>
+    <span>psyche-0.com</span>
+  </div>
+</div></footer>
+<script src="assets/console.js?v=20261019b"></script>
+</body>
+</html>
