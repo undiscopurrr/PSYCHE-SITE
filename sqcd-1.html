@@ -16,9 +16,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,700;1,6..96,400;1,6..96,500;1,6..96,700&family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&display=swap">
-<link rel="stylesheet" href="assets/style.css?v=20261019b">
+<link rel="stylesheet" href="assets/style.css?v=20261020">
 </head>
-<body>
+<body class="rose">
 <header class="site"><div class="bar">
   <a class="mark" href="index.html">PSYCHE</a>
   <button class="menu" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
@@ -34,22 +34,16 @@
   </nav>
 </div></header>
 
-<figure class="poster">
-  <picture>
-  <source media="(max-width:640px)" srcset="assets/sqcd-1-cover-l.jpg" width="900" height="2052">
-  <img src="assets/sqcd-1-cover.jpg" alt="SQCD-1 · Settlement Quality Compute Data. Part I, the obligation. Part II, the record. Part III, filing, divergence, and finality. The record a delivered compute hour settles on." width="2400" height="1336">
-  </picture>
-</figure>
-
-<div class="wrap" style="padding-top:72px">
+<div class="wrap">
   <div class="pagehead">
-    <p class="kicker">Standard · Version 1.0 · 2026-09-03</p>
-    <h1><span class="it">SQCD-1</span></h1>
-    <p class="lede"><b>The record a delivered compute hour settles on.</b> One record covers one delivery claim over one window.</p>
+    <img class="sqcd-logo" src="assets/sqcd-1-logo.png" alt="SQCD-1 · Settlement Quality Compute Data" width="900" height="973">
+    <p class="kicker grad">Standard · Version 1.0 · 2026-09-03</p>
+    <h1>The record a delivered compute hour <span class="it">settles on.</span></h1>
+    <p class="lede">One record covers one delivery claim over one window. Issued by PSYCHE.</p>
     <div class="row-cta">
-      <a class="ghost" href="assets/sqcd-1-in-brief.pdf">Brief</a>
-      <a class="ghost" href="assets/sqcd-1-settlement-quality-compute-data.pdf">Full standard</a>
-      <a class="ghost" href="https://github.com/undiscopurrr/PSYCHE-PAPER#where-this-version-lives">Schemas &amp; vectors</a>
+      <a class="ghost" href="assets/sqcd-1-in-brief.pdf" target="_blank" rel="noopener">SQCD-1 Brief</a>
+      <a class="ghost" href="assets/sqcd-1-settlement-quality-compute-data.pdf" target="_blank" rel="noopener">SQCD-1 Full standard</a>
+      <a class="ghost" href="https://github.com/undiscopurrr/PSYCHE-FOUNDATIONS" target="_blank" rel="noopener">SQCD-1 Schemas &amp; vectors</a>
     </div>
   </div>
 
@@ -63,7 +57,7 @@
 
   <section>
     <div class="sec-label"><span>The clock</span><span>Business days after the window closes</span></div>
-    <div class="clock">
+    <div class="clock"><div class="ticks">
       <div class="tick"><div class="w">W+2</div><div class="e">Both parties file measurements</div></div>
       <div class="tick"><div class="w">W+5</div><div class="e">Divergence computed</div></div>
       <div class="tick"><div class="w">W+7</div><div class="e">Delivery claim filed</div></div>
@@ -71,19 +65,19 @@
       <div class="tick"><div class="w">W+30</div><div class="e">Correction window closes</div></div>
       <div class="tick final"><div class="w">W+45</div><div class="e">Quantity finality</div></div>
       <div class="tick final"><div class="w">W+90</div><div class="e">Money finality</div></div>
-    </div>
-    <p class="note" style="margin-top:18px">Section I governs. A Profile may state further recomputation passes under I.1.4, each with its own date.</p>
+    </div></div>
+    <p class="note" style="margin-top:28px">Section I governs. A Profile may state further recomputation passes under I.1.4, each with its own date.</p>
   </section>
 
   <section>
     <div class="sec-label"><span>The record</span><span>Six field groups</span></div>
-    <div class="fields">
-      <div class="field"><span class="l">A</span><span class="t">Contract Standard</span><p>The clause the record answers to; the metric and the <b>named</b> function that turns samples into a period figure; the window; the exclusions; the thresholds; the Grade Class over nine dimensions; the verifiability tier of every field; and one digest over all of it, filed <b>before the window opens</b>.</p></div>
-      <div class="field"><span class="l">B</span><span class="t">Measurements</span><p>Channel, samples, measured subject, instrument, clock source, aggregation, and the layer the series observes at. An interval counts as delivered on every covered layer at once.</p></div>
-      <div class="field"><span class="l">C</span><span class="t">Missing Intervals</span><p>Every interval nobody observed: declared, attributed, valued. The <b>Unresolved Fraction</b> and the <b>Unilateral Fraction</b> stand on the face of the record.</p></div>
-      <div class="field"><span class="l">D</span><span class="t">Provenance</span><p>Filing party and key, source class, the independence of trust roots, and a signature over the filed set.</p></div>
-      <div class="field"><span class="l">E</span><span class="t">Temporal Binding</span><p>Signing time as claimed, and an inclusion proof against a published log head.</p></div>
-      <div class="field"><span class="l">F</span><span class="t">Claim and Decision</span><p>The delivery claim; the counterparty’s decision; the authority it was signed under. <b>The decision alone produces acceptance.</b></p></div>
+    <div class="items">
+      <div class="field"><span class="l">A</span><div><p class="t">Contract Standard</p><p>The clause the record answers to; the metric and the <b>named</b> function that turns samples into a period figure; the window; the exclusions; the thresholds; the Grade Class over nine dimensions; the verifiability tier of every field; and one digest over all of it, filed <b>before the window opens</b>.</p></div></div>
+      <div class="field"><span class="l">B</span><div><p class="t">Measurements</p><p>Channel, samples, measured subject, instrument, clock source, aggregation, and the layer the series observes at. An interval counts as delivered on every covered layer at once.</p></div></div>
+      <div class="field"><span class="l">C</span><div><p class="t">Missing Intervals</p><p>Every interval nobody observed: declared, attributed, valued. The <b>Unresolved Fraction</b> and the <b>Unilateral Fraction</b> stand on the face of the record.</p></div></div>
+      <div class="field"><span class="l">D</span><div><p class="t">Provenance</p><p>Filing party and key, source class, the independence of trust roots, and a signature over the filed set.</p></div></div>
+      <div class="field"><span class="l">E</span><div><p class="t">Temporal Binding</p><p>Signing time as claimed, and an inclusion proof against a published log head.</p></div></div>
+      <div class="field"><span class="l">F</span><div><p class="t">Claim and Decision</p><p>The delivery claim; the counterparty’s decision; the authority it was signed under. <b>The decision alone produces acceptance.</b></p></div></div>
     </div>
   </section>
 
@@ -97,7 +91,7 @@
   <section>
     <div class="sec-label"><span>This version</span><span>Identified by digest</span></div>
     <p>SHA-256 of <code>SQCD-1-settlement-quality-compute-data.pdf</code></p>
-    <p class="digest">ffafaac38bb0d2afa15bbe274839244393d9ed4061510f945de0c5f0aecba47e</p>
+    <p class="digest">eee135a525bf073083834da23e584432999d95807ce0bc1a2edb4430037f9131</p>
     <p class="note" style="margin-top:22px">Text under CC BY-ND 4.0. Forms, schemas and conformance vectors under a permissive licence, for lifting into code. Where this page and the standard disagree, the standard governs.</p>
     <div class="row-cta">
       <a class="ghost" href="engage.html">Engage</a>
@@ -112,11 +106,11 @@
   </div>
   <div class="fl">
     <a href="https://x.com/Undiscopurrr">X</a>
-    <a href="https://github.com/undiscopurrr/PSYCHE-PAPER">GitHub</a>
+    <a href="https://github.com/undiscopurrr/PSYCHE-FOUNDATIONS">GitHub</a>
     <a class="mail" href="mailto:feifei.gelato@gmail.com">feifei.gelato@gmail.com</a>
     <span>psyche-0.com</span>
   </div>
 </div></footer>
-<script src="assets/console.js?v=20261019b"></script>
+<script src="assets/console.js?v=20261020"></script>
 </body>
 </html>
