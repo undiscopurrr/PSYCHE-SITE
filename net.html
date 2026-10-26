@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Case — PSYCHE</title>
+<meta name="description" content="How one delivery of contracted compute settles on PSYCHE: the parties around a Case, the seven stops from signed terms to final money, and what each party does today and with PSYCHE.">
+<link rel="canonical" href="https://psyche-0.com/net.html">
+<link rel="icon" href="favicon.svg?v=3" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png?v=3" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png?v=3">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="PSYCHE">
+<meta property="og:title" content="The Case">
+<meta property="og:description" content="One Case, every party: how a delivery of contracted compute settles, stop by stop, and what each party stops doing by hand.">
+<meta property="og:url" content="https://psyche-0.com/net.html">
+<meta property="og:image" content="https://psyche-0.com/assets/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@Undiscopurrr">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,700;1,6..96,400;1,6..96,500;1,6..96,700&family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&display=swap">
+<link rel="stylesheet" href="assets/style.css?v=20261026c">
+<style>
+  section p{color:var(--ivory-dim);max-width:46rem}
+  section p b{color:var(--ivory);font-weight:500}
+  section a{color:var(--ivory-dim)}
+  .vh{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+  /* the net */
+  .net{display:grid;gap:34px}
+  .net svg{max-width:980px;margin:0 auto}
+  .net svg{width:100%;height:auto;display:block}
+  .net .legend{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px 36px;align-content:start}
+  .net .legend h3{font-family:var(--cond);font-weight:500;font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--brass);margin:0 0 4px}
+  .net .legend p{margin:0;font-size:15.5px}
+  .netlist{display:none;margin:0;padding:0;list-style:none}
+  .netlist li{padding:10px 0;border-bottom:1px solid var(--hair-2,rgba(243,238,228,.08));font-size:14.5px;color:var(--ivory-dim)}
+  .netlist li.core>b{color:var(--brass);margin-right:10px}
+  .netlist li b{color:var(--ivory);font-weight:500}
+  .netlist li.core b{color:var(--brass)}
+  .netlist button{display:grid;grid-template-columns:14px minmax(0,1fr);gap:10px;align-items:baseline;width:100%;text-align:left;background:none;border:0;padding:0;font:inherit;color:inherit;cursor:pointer}
+  .netlist button i{display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--c)}
+  .netlist button:hover b,.netlist button:focus-visible b{color:var(--c)}
+  .node{cursor:pointer;transform-box:fill-box;transform-origin:center;transition:transform .9s cubic-bezier(.25,.8,.3,1)}
+  .node:focus{outline:0}
+  .node .pluck{transform-box:fill-box;transform-origin:center}
+  .node .nm,.node .vb{transition:fill .7s ease}
+  .node .lit circle,.node .lit rect{transition:fill .7s ease,stroke .7s ease}
+  .node.up{transform:translateY(-8px) scale(1.3);transition:transform .75s cubic-bezier(.34,1.42,.5,1)}
+  .node.core.up{transform:translateY(-3px) scale(1.1)}
+  .node.up .nm,.node.on .nm{fill:var(--c)}
+  .node.up .vb,.node.on .vb{fill:#F3EEE4}
+  .node.up .lit circle,.node.on .lit circle{fill:var(--c)}
+  .node.up .lit rect,.node.on .lit rect{stroke:var(--c)}
+  .node.up .lit{animation:breathe 3.4s infinite}
+  .node.on .lit,.node.core.up .lit{animation:breatheSoft 3.4s infinite}
+  @keyframes breathe{0%{filter:drop-shadow(0 0 4px color-mix(in srgb,var(--c) 52%,transparent));animation-timing-function:cubic-bezier(.3,0,.2,1)}38%{filter:drop-shadow(0 0 15px color-mix(in srgb,var(--c) 95%,transparent));animation-timing-function:cubic-bezier(.45,0,.55,1)}100%{filter:drop-shadow(0 0 4px color-mix(in srgb,var(--c) 52%,transparent))}}
+  @keyframes breatheSoft{0%{filter:drop-shadow(0 0 2.5px color-mix(in srgb,var(--c) 34%,transparent));animation-timing-function:cubic-bezier(.3,0,.2,1)}38%{filter:drop-shadow(0 0 8px color-mix(in srgb,var(--c) 62%,transparent));animation-timing-function:cubic-bezier(.45,0,.55,1)}100%{filter:drop-shadow(0 0 2.5px color-mix(in srgb,var(--c) 34%,transparent))}}
+  .spoke{transition:stroke .6s ease,stroke-opacity .6s ease}
+  .hitlayer path{fill:none;stroke:none;pointer-events:all;cursor:pointer}
+  @media (prefers-reduced-motion:reduce){.node .lit{animation:none!important}.node,.node.up{transition:none}.node.up{transform:scale(1.15)}}
+  /* the stops */
+  .rail{display:grid;grid-template-columns:repeat(auto-fill,minmax(215px,1fr));gap:34px 22px;margin-top:8px}
+  .stop{position:relative;padding-top:30px;min-width:0}
+  .stop::after{content:"";position:absolute;left:0;right:-22px;top:11px;height:1px;background:var(--hair)}
+  .stop:last-child::after{right:0}
+  .stop::before{content:"";position:absolute;left:0;top:6px;width:11px;height:11px;border-radius:50%;background:var(--brass);z-index:1}
+  .stop .d{font-family:var(--mono);font-size:11.5px;color:var(--brass);letter-spacing:.04em;margin-bottom:8px}
+  .stop h3{font-family:var(--didot);font-weight:500;font-size:21px;line-height:1.15;margin:0 0 10px;color:var(--ivory);text-wrap:balance}
+  .stop p{font-size:14.5px;line-height:1.5;margin:0 0 10px}
+  .stop .by{font-family:var(--cond);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--ivory-mute)}
+  .stop.lit{outline:0}
+  .stop.lit::before{background:var(--c,var(--brass));box-shadow:0 0 0 5px color-mix(in srgb,var(--c,var(--brass)) 28%,transparent)}
+  .stop.lit h3{color:var(--c,var(--brass))}
+  /* picker */
+  .pick{display:flex;flex-wrap:wrap;gap:8px 8px;margin-top:4px}
+  .pick button{font-family:var(--cond);font-weight:500;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--ivory-dim);background:transparent;border:1px solid var(--hair);padding:8px 13px;cursor:pointer;border-radius:0}
+  .pick button:hover{color:var(--ivory);border-color:var(--brass)}
+  .pick button[aria-pressed="true"]{color:#000;background:var(--c,var(--brass));border-color:var(--c,var(--brass))}
+  .pick button:focus-visible{outline:2px solid var(--brass);outline-offset:2px}
+  .panel{margin-top:34px;border-top:1px solid var(--hair);padding-top:26px}
+  .panel .head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:8px 20px;margin-bottom:22px}
+  .panel .head h3{font-family:var(--didot);font-weight:500;font-size:30px;margin:0;color:var(--ivory)}
+  .panel .head span{color:var(--ivory-mute);font-size:15px;max-width:40rem}
+  .cols{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.8fr) minmax(0,1.25fr);gap:0}
+  .col{min-width:0;padding:4px 20px 4px 0}
+  .col+.col{padding-left:20px;border-left:1px solid var(--hair-2,rgba(243,238,228,.08))}
+  .col h4{font-family:var(--cond);font-weight:500;font-size:12px;letter-spacing:.22em;text-transform:uppercase;margin:0 0 10px;color:var(--ivory-mute)}
+  .col.you h4{color:var(--brass)}
+  .col.auto h4{color:var(--ivory)}
+  .col ol{margin:0;padding-left:1.3em;display:grid;gap:7px;font-size:15px;line-height:1.5}
+  .col.today li{color:var(--ivory-mute)}
+  .col.you ol{list-style:none;padding:0}
+  .col.you li{border-left:2px solid var(--c,var(--brass));background:color-mix(in srgb,var(--c,var(--brass)) 14%,transparent);padding:8px 10px;color:var(--ivory)}
+  .col.auto li{color:var(--ivory-dim)}
+  .col.auto li::marker{color:var(--brass)}
+  .gone{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:20px}
+  .gone b{font-family:var(--cond);font-weight:500;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--ivory-mute);margin-right:4px}
+  .gone span{font-size:14px;color:var(--ivory);border:1px solid var(--hair);padding:3px 10px;border-radius:999px;text-decoration:line-through;text-decoration-color:var(--brass)}
+  .never{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 40px;max-width:52rem}
+  .never p{margin:0;padding-left:16px;border-left:1px solid var(--brass)}
+  @media (max-width:860px){
+    .net .legend{grid-template-columns:minmax(0,1fr)}
+    .net svg{display:none}
+    .netlist{display:block}
+    .rail{position:relative;grid-template-columns:minmax(0,1fr);gap:26px}
+    .rail::before{content:"";position:absolute;top:0;bottom:0;left:5px;width:1px;background:var(--hair)}
+    .stop{padding:0 0 0 26px}
+    .stop::after{display:none}
+    .stop::before{top:5px}
+    .cols{grid-template-columns:minmax(0,1fr)}
+    .col,.col+.col{padding:12px 0;border-left:0}
+    .col+.col{border-top:1px dashed var(--hair-2,rgba(243,238,228,.08))}
+    .never{grid-template-columns:minmax(0,1fr)}
+  }
+</style>
+</head>
+<body>
+<header class="site"><div class="bar">
+  <a class="mark" href="index.html">PSYCHE</a>
+  <button class="menu" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+  <nav class="site" id="nav">
+    <a href="index.html">Overview</a>
+    <a href="net.html" aria-current="page">Net</a>
+    <a href="missions.html">Missions</a>
+    <a href="intelligence.html">Intelligence</a>
+    <a href="sqcd-1.html">SQCD-1</a>
+    <a href="paper.html">Paper</a>
+    <a href="engage.html">Engage</a>
+    <a href="about.html">Who</a>
+    <a class="zero" href="map.html">PSYCHE-0 · Map</a>
+  </nav>
+</div></header>
+
+<main class="wrap wide">
+  <div class="pagehead">
+    <p class="kicker">PSYCHE Net · How one delivery settles</p>
+    <h1>One Case, <span class="it">every party.</span></h1>
+    <p class="lede">Contracted compute is GPU capacity rented under a contract that runs for years and pays by the month. Each month the money turns on three facts: what was delivered, whether it met the terms, and whether the buyer accepted it. Today those facts sit in two companies' emails, PDFs and dashboards, and the lender, the insurer and the auditor take them on the parties' word. PSYCHE keeps them as one record per delivery window, called a Case, which both parties sign into and anyone holding it can recompute.</p>
+  </div>
+
+  <section>
+    <div class="sec-label"><span>The net</span><span>Who touches a Case, and how</span></div>
+    <div class="net">
+      <svg viewBox="0 0 1000 780" role="img" aria-labelledby="net-title net-desc" id="netsvg">
+        <title id="net-title">The parties around one Case</title>
+        <desc id="net-desc">The provider and the buyer file into the Case and sign its terms and its decision. Around them, lenders, insurers, brokers, rating agencies, exchanges, payables teams, auditors, verifiers, regulators and lawyers read the Case by grant, and evidence and reference providers feed it signed data.</desc>
+      </svg>
+      <ul class="netlist" id="netlist"></ul>
+      <div class="legend">
+        <div><h3>In the middle</h3><p>One Case per delivery window. It holds the terms both parties signed; the Proof of Reality Capsule (PoR Capsule), the sealed evidence the claim is judged on; the result of Sigma, PSYCHE's verification engine; the buyer's decision; and the dates after which nothing changes.</p></div>
+        <div><h3>The two parties</h3><p>The provider delivers and claims. The buyer decides. Each signs its own filings; neither can edit the other's.</p></div>
+        <div><h3>Everyone else</h3><p>Reads the Case by a grant one of the parties issued, or feeds it signed data. No reader needs to trust PSYCHE: the Case recomputes from its own contents.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-label"><span>The Case, stop by stop</span><span>Seven stops · <a href="sqcd-1.html">the dates, on the SQCD-1 page</a></span></div>
+    <div class="rail" id="rail"></div>
+  </section>
+
+  <section>
+    <div class="sec-label"><span>Your party</span><span>What you do today, and with PSYCHE</span></div>
+    <p>Pick the party you work for. Each panel lists the job as it runs today, the one or two steps that stay with you, and what the Case takes over.</p>
+    <div class="pick" id="pick" role="tablist" aria-label="Parties"></div>
+    <div class="panel" id="panel"></div>
+  </section>
+
+  <section>
+    <div class="sec-label"><span>What never changes</span><span>Four rules, on every Case</span></div>
+    <div class="never">
+      <p>Sigma's result settles nothing. Only the buyer's signed decision, or its delegate's under a grant, produces <b>accepted</b>.</p>
+      <p>Silence produces <b>expired</b>, under a form both parties chose before the window opened. No amount of silence produces acceptance.</p>
+      <p>PSYCHE holds no one's money. A payment instruction exists only on <b>accepted</b>, or on an expiry form that states what is owed.</p>
+      <p>The Case holds delivery measurements and signatures. It holds no model, no code and no business data of either party.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-label"><span>Where this is written down</span><span>Standard · Paper</span></div>
+    <p><b>SQCD-1</b> is the open standard for the record a Case holds: the fields, the clock and the completeness test. <b>Signed in Advance</b> is the paper that proves the rules above hold against a host nobody trusts.</p>
+    <div class="row-cta">
+      <a class="ghost" href="sqcd-1.html">SQCD-1</a>
+      <a class="ghost" href="paper.html">Signed in Advance</a>
+      <a class="ghost" href="engage.html">Engage</a>
+    </div>
+  </section>
+</main>
+
+<footer class="site"><div class="fw"><div class="fl">
+  <a href="https://x.com/Undiscopurrr">X</a>
+  <a href="https://github.com/undiscopurrr/PSYCHE-FOUNDATIONS">GitHub</a>
+  <a class="mail" href="mailto:purr@psyche-0.com">purr@psyche-0.com</a>
+  <span>psyche-0.com</span>
+</div></div></footer>
+<script src="assets/console.js?v=20261026a"></script>
+<script>
+(function(){
+var NS="http://www.w3.org/2000/svg";
+var STOPS=[
+ {d:"1 · Before the window",t:"Terms signed",p:"Both parties sign what is measured, the function that turns samples into a figure, the threshold, the credit table, the length of the review window, and what silence will cost. A digest fixes the text; nothing in it changes after this.",w:["Provider","Buyer"]},
+ {d:"2 · After the window",t:"Measurements filed",p:"Each party files its own measurements under its own signature; evidence providers feed signed data. An interval with no data is declared, with its reason. Where the two sides differ, the divergence is computed and filed as a fact of its own.",w:["Provider","Buyer","Evidence providers"]},
+ {d:"3",t:"The claim",p:"The provider files its delivery claim: the units, the window and the standard. PSYCHE seals the evidence behind it, every signed filing and every declared gap, into one PoR Capsule. Once sealed, the Capsule never changes, and anyone holding it can replay it. The claim carries no verdict.",w:["Provider"]},
+ {d:"4",t:"The result",p:"Sigma, PSYCHE's verification engine, evaluates the PoR Capsule against the signed terms and returns one of four results: claim supported, claim not supported, requires review, evidence fault. An independent verifier can rerun Sigma on the same Capsule and sign whether its result matches. The result settles nothing.",w:["Sigma","Independent verifier"]},
+ {d:"5 · Inside the review window",t:"The decision",p:"The buyer, or a delegate inside a grant the buyer issued, accepts, rejects or disputes. If the review window closes with no decision, the Case expires under the form both signed: nothing owed, the invoice stands, the remedy stands, or a stated amount.",w:["Buyer"]},
+ {d:"6 · On accepted",t:"Money",p:"A payment instruction exists only once the Case is accepted, or expired under a form that states what is owed. Credits follow the signed table. A dispute holds the payment until it resolves.",w:["Payables","Buyer"]},
+ {d:"7",t:"Final",p:"Corrections close first, then the quantity is final, then the money. The Case is sealed, and anyone who holds it, by grant, recomputes the same figure, the same credit and the same decision.",w:["Lender","Insurer","Auditor","Rating agency"]}
+];
+var CORE=[
+ {id:"provider",name:"Compute provider",verb:"delivers, files, claims",stops:[0,1,2,3,4,5],c:"#E6B76A"},
+ {id:"buyer",name:"Compute buyer",verb:"files, decides",stops:[0,1,4,5],c:"#7FD6C8"}
+];
+var READ=[
+ {id:"lender",name:"Lender",verb:"reads by grant",stops:[4,5,6],c:"#8FB4FF"},
+ {id:"insurer",name:"Insurer",verb:"reads the sealed Case",stops:[1,6],c:"#F29CC8"},
+ {id:"broker",name:"Broker",verb:"routes the claim",stops:[6],c:"#F4A66B"},
+ {id:"rating",name:"Rating agency",verb:"reads by grant",stops:[6],c:"#C8A8FF"},
+ {id:"exchange",name:"Exchange",verb:"cites the standard",stops:[0,6],c:"#9FE07A"},
+ {id:"payables",name:"Payables",verb:"releases or holds",stops:[5],c:"#FFD166"},
+ {id:"evidence",name:"Evidence provider",verb:"feeds signed data",stops:[1],c:"#6FD9EA"},
+ {id:"reference",name:"Reference data",verb:"feeds signed facts",stops:[1],c:"#D9C3A3"},
+ {id:"verifier",name:"Independent verifier",verb:"reruns, signs",stops:[3,6],c:"#B7EA5E"},
+ {id:"auditor",name:"Auditor",verb:"samples, recomputes",stops:[6],c:"#FF9D9D"},
+ {id:"regulator",name:"Regulator",verb:"cites, examines",stops:[0,6],c:"#9CAAFF"},
+ {id:"lawyer",name:"Lawyers, arbitrators",verb:"decide one question",stops:[4],c:"#E9B5FF"},
+ {id:"standards",name:"Standards body",verb:"versions the templates",stops:[0],c:"#8FD8A2"}
+];
+var P={
+ provider:{who:"GPU clouds and AI data-centre operators, such as Boost Run, IREN, Nebius and CoreWeave.",
+  today:["Lawyers negotiate acceptance criteria, service levels and credit tables clause by clause, spread across the master agreement, order forms and exhibits","Run the acceptance tests, get the hardware vendor's validation report, send it to the customer as a PDF","Send the ready-for-test notice and chase an answer inside the window (seven business days in Cohere's contract)","Rejected: read the letter, fix within the cure period (twenty business days in Cohere's contract), re-test, send the notice again","Compute availability and credits each month, invoice, and reconcile by email when the customer disagrees","For every loan draw, sign an officer's certificate and get a consultant's certificate; once a year, ask the customer for an acknowledgement letter","After an outage, assemble the evidence for the insurer and wait months"],
+  you:["Sign the terms with your customer before the window opens","If rejected, fix the hardware; the Case names the failed item"],
+  auto:["Drafts the terms from the contract for both sides to sign","Takes in test results and monitoring data, each entry signed and time-stamped","Sends the notices, runs the clocks and the reminders; one customer signature is acceptance","On a rejection, names the failed item and its data, and reruns the same checks after the fix","Computes the monthly figure and any credit, straight onto the invoice","Gives your lender read access by your grant, and generates the draw attachments","Keeps the outage record signed and sealed for the claim"],
+  gone:["Chasing acceptance","Monthly reconciliation","Draw paperwork","Claim evidence"]},
+ buyer:{who:"AI labs and enterprises, such as Cohere and Thinking Machines Lab, and Microsoft when it buys.",
+  today:["The acceptance window is a few days (seven business days in Cohere's contract), so you rush your own tests","A rejection must list in writing each failed criterion and the test behind it; anything left out is waived","Say nothing and the window closes as acceptance","Track service levels yourself each month; a credit needs your own logs, filed before the deadline","Your supplier's lender asks for an acknowledgement letter; legal reviews and signs it"],
+  you:["Sign the terms before the window opens","Sign once to accept or reject"],
+  auto:["Gathers the test results into the Case, ready when the window opens","Lists the failed items and their evidence if you reject","Reminds you before the deadline; what silence costs was signed before work began","Computes credits from the signed table, with nothing to claim","Shows the lender, from the Case, what the acknowledgement letter would state; you countersign the Case once a period"],
+  gone:["Racing the window","Writing rejections","Claiming credits","Reviewing each letter"]},
+ lender:{who:"Banks and private credit funds lending against GPU contracts.",
+  today:["Diligence: read the contracts and hire a technical adviser","Each draw: review the borrower's own officer's certificate and a data-hall consultant's certificate","Periodically: read compliance certificates and borrowing-base reports","Once a year: ask the customer for an acknowledgement letter","A rejection or a termination notice reaches you through the borrower"],
+  you:["Accept the borrower's grant and open a read-only seat","Read one screen and make the credit decision"],
+  auto:["Shows every facility in the portfolio on one screen","Records which tranche was accepted, when, by whom, and under what authority","Lists the Case's facts under each draw condition and generates the draw attachments","Keeps credits, disputes and finality dates live, with an alert the day something changes","Exports one package for the credit committee and the rating agency"],
+  gone:["The borrower's word","Manual checks per draw","Annual letters","News through the borrower"]},
+ insurer:{who:"Carriers of cyber, downtime and parametric cover.",
+  today:["After a claim, investigate and collect material from both sides","Traditional cyber policies carry waiting periods of eight to twelve hours, and claims take months or years","Parametric cover needs your own probes, which measure the probe and not the figure in the customer's contract","Pricing rests on outside models: for the same AWS outage, two firms' loss estimates ran from $38 million to $650 million"],
+  you:["Read the sealed PoR Capsule","Approve or deny"],
+  auto:["Holds outage windows, scope and who filed the data in a signed, sealed Case","Sends the PoR Capsule into claim review","Where the policy fixed its parametric terms before the window, computes the payout from the Case: the intervals below the threshold, the intervals with no data, and the amount up to the limit; you still decide","Pools Cases across facilities for pricing"],
+  gone:["Claim investigation","Waiting for documents","Pricing on guesses"]},
+ broker:{who:"The intermediaries who place cover and handle claims.",
+  today:["Piece together outage evidence for the client's claim","Explain to both sides who owes what under the contract","Chase a stuck claim back and forth"],
+  you:["Route the Case into claim review once it meets the conditions"],
+  auto:["Attaches the sealed PoR Capsule to the claim as its evidence","Computes the outage intervals and figures in advance","Tracks progress and outcome on the same Case"],
+  gone:["Piecing evidence","Explaining clauses","Chasing claims"]},
+ rating:{who:"Agencies rating GPU loans and data-centre debt.",
+  today:["Rely on the issuer's reports and third-party reports","See no facility-level acceptance, credits or disputes","Compare issuers whose materials all differ in format"],
+  you:["Read the Case and rate"],
+  auto:["Opens read-only access, by grant, to the same facility Cases the lender reads","Makes acceptance, credits and disputes checkable and recomputable per facility","Uses one format across issuers"],
+  gone:["Second-hand reports","Mismatched formats","Blind spots per facility"]},
+ exchange:{who:"Venues that list compute contracts and settle them.",
+  today:["Index contracts can only settle in cash against the index","For physical delivery, whether it was delivered, and correctly, rests on each side's word","A delivery dispute means sending someone to check"],
+  you:["Cite one standard when the contract is listed"],
+  auto:["Holds the facts delivery turns on: which grade, how many hours, whether accepted, when final","Keeps one rule version across the market","Narrows any dispute to one question with the amounts on both sides"],
+  gone:["Delivery on each side's word","Site checks","A rulebook per contract"]},
+ payables:{who:"Accounts-payable teams and payment agents.",
+  today:["Wait for an email from the business saying it can be paid","Discover a dispute after paying, then claw back or offset","Adjust credits and refunds by hand, one by one"],
+  you:["Release the payment from the Case, or place a hold"],
+  auto:["Moves an invoice to payment only once the Case is accepted, or expired under a form that states what is owed","Holds a payment while a dispute is open","Computes credits and refunds from the signed table"],
+  gone:["Paying on an email","Clawbacks","Manual adjustments"]},
+ evidence:{who:"Monitoring vendors, hardware validation reports, third-party probe networks.",
+  today:["Hand data to the customer and never learn whether or how it was used","Export the same data again in every customer's format","Unsigned data may not count when a dispute comes"],
+  you:["Connect once, in the standard format"],
+  auto:["Signs each filing so every Case that uses it can cite it","Carries source and signature, so the data counts as evidence","Records a declared reason for any interval with no data"],
+  gone:["Repeated exports","Data nobody accepts","Losing track"]},
+ reference:{who:"Publishers of price indices, reference rates and status pages.",
+  today:["The index gets quoted but rarely enters the settlement itself","Which version and which moment was used is unclear afterwards"],
+  you:["Publish reference data in the standard format"],
+  auto:["Enters it in the Case as an external reference fact: market price, reference rate, external status","Signs which version and which moment was cited"],
+  gone:["Untraceable citations","Staying outside settlement"]},
+ verifier:{who:"Second checkers, technical advisers, engineering consultancies.",
+  today:["Receive a pile of files from each side, sort them, then analyse","Issue an opinion that others can only believe or not"],
+  you:["Rerun Sigma on the PoR Capsule and sign the result"],
+  auto:["Hands you the exact PoR Capsule and terms the original result came from","Records a match, or names the step where yours differs"],
+  gone:["Sorting files","Opinions taken on trust"]},
+ auditor:{who:"Audit firms and internal audit.",
+  today:["Sample invoices, emails and rejection letters at year end","Ask, case by case, who approved what and on what basis","Decide the revenue month from pieced-together evidence"],
+  you:["Sample and recompute"],
+  auto:["Keeps, behind every revenue line, who accepted, when, and under which terms, on a log nobody can rewrite","Matches acceptance dates and amounts to revenue recognition"],
+  gone:["Digging through email","Chasing approvers","Pieced-together evidence"]},
+ regulator:{who:"Such as the US Commodity Futures Trading Commission (CFTC).",
+  today:["Cannot see how delivery in compute trades is confirmed","Most public comments on compute derivatives ask for independent audit before listing, with no common method"],
+  you:["Cite one public standard"],
+  auto:["Listed contracts can require Cases kept to the standard","An examiner recomputes any Case on request"],
+  gone:["Invisible delivery","No common method"]},
+ lawyer:{who:"Those who handle delivery disputes.",
+  today:["Rebuild what happened from two companies' emails and logs, over weeks or longer","Two sets of numbers, two explanations"],
+  you:["Decide the one narrow question, amounts already computed"],
+  auto:["Keeps the terms, the PoR Capsule, Sigma's result and every signature in one Case","Narrows the disagreement to one question with both amounts worked out"],
+  gone:["Reconstructing events","Competing stories"]},
+ standards:{who:"Keepers of the standard, the rule templates and the formula registry.",
+  today:["Every contract defines 'available' and its arithmetic for itself","The same word means different things in two contracts"],
+  you:["Maintain the template and formula versions"],
+  auto:["Publishes rule templates and formulas (the SQCD-1 registry) under version numbers","Every party cites the same version, so a word keeps one meaning"],
+  gone:["A definition per contract","One word, two meanings"]}
+};
+var ALL=CORE.concat(READ);
+function esc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;")}
+function el(tag,attrs,text){var e=document.createElementNS(NS,tag);for(var k in attrs)e.setAttribute(k,attrs[k]);if(text!=null)e.appendChild(document.createTextNode(text));return e}
+/* the net, drawn */
+function node(n,extra){var g=el("g",{"class":"node"+(extra||""),"data-id":n.id,tabindex:"0",role:"button","aria-label":n.name+", "+n.verb,"pointer-events":"none"});g.style.setProperty("--c",n.c);var p=el("g",{"class":"pluck"}),l=el("g",{"class":"lit"});p.appendChild(l);g.appendChild(p);g._p=p;g._l=l;return g}
+function rgba(hex,a){var h=hex.replace("#","");return "rgba("+parseInt(h.substr(0,2),16)+","+parseInt(h.substr(2,2),16)+","+parseInt(h.substr(4,2),16)+","+a+")"}
+var calm=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+function drawNet(){
+  var svg=document.getElementById("netsvg");if(!svg)return;
+  var cx=500,cy=390,R=315,RX=250,RY=100;
+  var lines=el("g",{}),nodes=el("g",{}),byId={},ring=[],spoke={};
+  READ.forEach(function(n,i){
+    var a=-Math.PI/2+i*(2*Math.PI/READ.length),x=cx+R*Math.cos(a),y=cy+R*Math.sin(a);
+    var ln=el("line",{"class":"spoke",x1:cx,y1:cy,x2:x,y2:y,stroke:"#F3EEE4","stroke-opacity":".12","stroke-width":1});lines.appendChild(ln);spoke[n.id]=ln;
+    var g=node(n),lit=g._l;
+    var top=Math.abs(Math.cos(a))<=0.12&&Math.sin(a)<0;
+    var right=Math.cos(a)>0.12||top,left=Math.cos(a)<-0.12,anchor=right?"start":(left?"end":"middle");
+    var tx=x+(right?12:(left?-12:0)),ty=y+(top?-4:(Math.sin(a)>0.85?22:4));
+    lit.appendChild(el("circle",{cx:x,cy:y,r:5,fill:n.c,"fill-opacity":".85"}));
+    lit.appendChild(el("text",{"class":"nm",x:tx,y:ty,"text-anchor":anchor,"font-family":"Barlow Condensed, Arial Narrow, sans-serif","font-size":"15","letter-spacing":"1.5","fill":"#F3EEE4"},n.name.toUpperCase()));
+    lit.appendChild(el("text",{"class":"vb",x:tx,y:ty+18,"text-anchor":anchor,"font-family":"Newsreader, Georgia, serif","font-size":"14","font-style":"italic","fill":"rgba(243,238,228,.6)"},n.verb));
+    nodes.appendChild(g);byId[n.id]=g;g._k=i;g._n=n;ring.push(g);
+  });
+  var px=[cx-150,cx+150];
+  CORE.forEach(function(n,i){
+    var x=px[i];
+    lines.appendChild(el("line",{x1:x,y1:cy,x2:cx+(i?60:-60),y2:cy,stroke:"#C9A877","stroke-width":1.5}));
+    var g=node(n," core"),lit=g._l;
+    lit.appendChild(el("rect",{x:x-80,y:cy-28,width:160,height:56,fill:"#09090b",stroke:"#C9A877","stroke-width":1}));
+    lit.appendChild(el("text",{"class":"nm",x:x,y:cy-4,"text-anchor":"middle","font-family":"Barlow Condensed, Arial Narrow, sans-serif","font-size":"15","letter-spacing":"1.5","fill":"#C9A877"},n.name.toUpperCase()));
+    lit.appendChild(el("text",{"class":"vb",x:x,y:cy+16,"text-anchor":"middle","font-family":"Newsreader, Georgia, serif","font-size":"14","font-style":"italic","fill":"rgba(243,238,228,.7)"},n.verb));
+    nodes.appendChild(g);byId[n.id]=g;g._n=n;g._side=i?0:Math.PI;
+  });
+  svg.appendChild(lines);
+  svg.appendChild(el("circle",{cx:cx,cy:cy,r:58,fill:"#C9A877"}));
+  svg.appendChild(el("text",{x:cx,y:cy-6,"text-anchor":"middle","font-family":"Bodoni Moda, Didot, Georgia, serif","font-size":"26","font-style":"italic","fill":"#000"},"Case"));
+  svg.appendChild(el("text",{x:cx,y:cy+16,"text-anchor":"middle","font-family":"IBM Plex Mono, monospace","font-size":"11","fill":"#000"},"one per window"));
+  svg.appendChild(nodes);
+  /* the hit layer tiles the whole drawing: a wedge per party around the ring, the two halves of an ellipse for the two parties in the middle */
+  var hits=el("g",{"class":"hitlayer"});svg.appendChild(hits);var built=false;
+  function build(){
+    if(built)return;var bb=ring.map(function(g){var b=g._l.getBBox();return Math.atan2(b.y+b.height/2-cy,b.x+b.width/2-cx)});
+    if(!bb.some(function(v){return v}))return;built=true;
+    var N=ring.length,BIG=1400;
+    function mid(a,b){var d=b-a;while(d<=0)d+=2*Math.PI;return a+d/2}
+    ring.forEach(function(g,i){
+      var a1=mid(bb[(i-1+N)%N],bb[i]),a2=mid(bb[i],bb[(i+1)%N]);while(a2<a1)a2+=2*Math.PI;
+      hits.appendChild(el("path",{"data-id":g._n.id,d:"M"+cx+" "+cy+"L"+(cx+BIG*Math.cos(a1))+" "+(cy+BIG*Math.sin(a1))+"A"+BIG+" "+BIG+" 0 "+((a2-a1)>Math.PI?1:0)+" 1 "+(cx+BIG*Math.cos(a2))+" "+(cy+BIG*Math.sin(a2))+"Z"}));
+    });
+    hits.appendChild(el("path",{"data-id":CORE[0].id,d:"M"+cx+" "+(cy-RY)+"A"+RX+" "+RY+" 0 0 0 "+cx+" "+(cy+RY)+"Z"}));
+    hits.appendChild(el("path",{"data-id":CORE[1].id,d:"M"+cx+" "+(cy-RY)+"A"+RX+" "+RY+" 0 0 1 "+cx+" "+(cy+RY)+"Z"}));
+  }
+  build();
+  /* motion: the hovered party rises, floats and breathes; the one just left rings on for a moment and fades */
+  var cur=null;
+  function stop(g){if(g._pk){g._pk.forEach(function(a){a.cancel()});g._pk=null}}
+  function release(g){
+    if(calm||!g._p.animate)return;
+    stop(g);var col=g._n.c,nm=g._l.querySelector(".nm");
+    g._pk=[
+      g._p.animate([{transform:"translate(0px,0px)"},{transform:"translate(0px,2.6px)",offset:.2},{transform:"translate(0px,-1.6px)",offset:.42},{transform:"translate(0px,.8px)",offset:.64},{transform:"translate(0px,-.3px)",offset:.84},{transform:"translate(0px,0px)"}],{duration:1100,easing:"ease-out"}),
+      g._l.animate([{filter:"drop-shadow(0 0 10px "+rgba(col,.75)+")"},{filter:"drop-shadow(0 0 0px "+rgba(col,0)+")"}],{duration:1900,easing:"cubic-bezier(.2,.6,.3,1)"}),
+      nm.animate([{fill:col},{fill:nm.getAttribute("fill")}],{duration:1900,easing:"ease-out"})
+    ];
+  }
+  function float(g){
+    if(calm||!g._p.animate)return;
+    stop(g);
+    g._pk=[g._p.animate([{transform:"translate(0px,0px) rotate(0deg)"},{transform:"translate(0px,-3px) rotate(.8deg)",offset:.3},{transform:"translate(0px,-1.5px) rotate(-.6deg)",offset:.65},{transform:"translate(0px,0px) rotate(0deg)"}],{duration:2900,iterations:Infinity,easing:"ease-in-out"})];
+  }
+  function enter(id){
+    var g=byId[id];if(!g||g===cur)return;
+    if(cur)leave();
+    cur=g;g.classList.add("up");float(g);
+    if(spoke[id]){spoke[id].setAttribute("stroke",g._n.c);spoke[id].setAttribute("stroke-opacity",".2")}
+  }
+  function leave(){
+    if(!cur)return;var g=cur;cur=null;g.classList.remove("up");
+    release(g);
+    var id=g._n.id;if(spoke[id]){spoke[id].setAttribute("stroke","#F3EEE4");spoke[id].setAttribute("stroke-opacity",".12")}
+  }
+  /* twinkle: now and then an idle party lights up in its own colour and fades, without moving */
+  var inView=true,over=false,last=null;
+  if(window.IntersectionObserver)new IntersectionObserver(function(es){inView=es[0].isIntersecting}).observe(svg);
+  function busy(g){return g===cur||g.classList.contains("on")||!!(g._pk&&g._pk.some(function(a){return a.playState==="running"}))}
+  function twinkle(){
+    var free=ring.filter(function(g){return g!==last&&!busy(g)});if(!free.length)return;
+    var g=free[Math.floor(Math.random()*free.length)],col=g._n.c,nm=g._l.querySelector(".nm"),base=nm.getAttribute("fill");last=g;
+    var dark="drop-shadow(0 0 0px "+rgba(col,0)+") drop-shadow(0 0 0px "+rgba(col,0)+")";
+    g._pk=[
+      g._l.animate([{filter:dark},{filter:"drop-shadow(0 0 10px "+rgba(col,.85)+") drop-shadow(0 0 18px "+rgba(col,.3)+")",offset:.22},{filter:dark}],{duration:2600,easing:"ease-out"}),
+      nm.animate([{fill:base},{fill:col,offset:.22},{fill:base}],{duration:2600,easing:"ease-out"})
+    ];
+  }
+  function tick(){
+    if(inView&&!document.hidden&&svg.getBoundingClientRect().width)twinkle();
+    setTimeout(tick,over?700+Math.random()*900:1400+Math.random()*1600);
+  }
+  if(!calm&&svg.animate)setTimeout(tick,1200);
+  svg.addEventListener("pointerenter",function(){over=true;build()});
+  svg.addEventListener("pointerleave",function(){over=false});
+  hits.addEventListener("pointerover",function(e){var id=e.target.getAttribute&&e.target.getAttribute("data-id");if(id)enter(id)});
+  svg.addEventListener("pointerleave",leave);
+  hits.addEventListener("click",function(e){var id=e.target.getAttribute&&e.target.getAttribute("data-id");if(id)go(id)});
+  nodes.addEventListener("focusin",function(e){var g=e.target.closest(".node");if(g)enter(g.getAttribute("data-id"))});
+  nodes.addEventListener("focusout",leave);
+  svg.addEventListener("keydown",function(e){var g=e.target.closest(".node");if(g&&(e.key==="Enter"||e.key===" ")){e.preventDefault();go(g.getAttribute("data-id"))}});
+  var ul=document.getElementById("netlist");
+  ul.innerHTML='<li class="core"><b>Case</b><span>one per delivery window</span></li>'+ALL.map(function(n,i){return '<li'+(i<2?' class="core"':'')+'><button type="button" data-id="'+n.id+'" style="--c:'+n.c+'"><i></i><span><b>'+esc(n.name)+'</b> <span>'+esc(n.verb)+'</span></span></button></li>'}).join("");
+  ul.addEventListener("click",function(e){var b=e.target.closest("button[data-id]");if(b)go(b.getAttribute("data-id"))});
+}
+function go(id){show(id);var y=document.getElementById("pick").getBoundingClientRect().top+window.scrollY-110;window.scrollTo({top:y,behavior:"smooth"})}
+function drawRail(){
+  document.getElementById("rail").innerHTML=STOPS.map(function(s,i){
+    return '<div class="stop" data-i="'+i+'"><div class="d">'+esc(s.d)+'</div><h3>'+esc(s.t)+'</h3><p>'+esc(s.p)+'</p><div class="by">'+esc(s.w.join(" · "))+'</div></div>';
+  }).join("");
+}
+function lit(id){var n=ALL.filter(function(x){return x.id===id})[0];var set={};(n?n.stops:[]).forEach(function(i){set[i]=1});
+  [].forEach.call(document.querySelectorAll(".stop"),function(s){s.classList.toggle("lit",!!set[s.getAttribute("data-i")])})}
+function show(id){
+  var n=ALL.filter(function(x){return x.id===id})[0];if(!n)return;var d=P[id];
+  var li=function(a){return a.map(function(x){return "<li>"+esc(x)+"</li>"}).join("")};
+  document.getElementById("panel").innerHTML=
+   '<div class="head"><h3>'+esc(n.name)+'</h3><span>'+esc(d.who)+'</span></div>'+
+   '<div class="cols"><div class="col today"><h4>Today, step by step</h4><ol>'+li(d.today)+'</ol></div>'+
+   '<div class="col you"><h4>With PSYCHE, you</h4><ol>'+li(d.you)+'</ol></div>'+
+   '<div class="col auto"><h4>The Case</h4><ol>'+li(d.auto)+'</ol></div></div>'+
+   '<div class="gone"><b>No more</b>'+d.gone.map(function(x){return "<span>"+esc(x)+"</span>"}).join("")+'</div>';
+  [].forEach.call(document.querySelectorAll("#pick button"),function(b){b.setAttribute("aria-pressed",String(b.getAttribute("data-id")===id))});
+  document.getElementById("rail").style.setProperty("--c",n.c);document.getElementById("panel").style.setProperty("--c",n.c);
+  [].forEach.call(document.querySelectorAll("#netsvg .node"),function(g){g.classList.toggle("on",g.getAttribute("data-id")===id)});
+  lit(id);
+  try{history.replaceState(null,"","#"+id)}catch(e){}
+}
+drawNet();drawRail();
+document.getElementById("pick").innerHTML=ALL.map(function(n){return '<button type="button" role="tab" data-id="'+n.id+'" aria-pressed="false" style="--c:'+n.c+'">'+esc(n.name)+'</button>'}).join("");
+document.getElementById("pick").addEventListener("click",function(e){var b=e.target.closest("button[data-id]");if(b)show(b.getAttribute("data-id"))});
+var start=(location.hash||"").slice(1);
+show(P[start]?start:"provider");
+})();
+</script>
+</body>
+</html>

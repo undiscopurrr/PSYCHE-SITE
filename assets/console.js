@@ -20,6 +20,17 @@
     document.addEventListener("keydown", function (e) { if (e.key === "Escape") setOpen(false); });
   }
 
+
+  /* Research dropdown */
+  document.querySelectorAll(".drop-btn").forEach(function (b) {
+    var menu = document.getElementById(b.getAttribute("aria-controls"));
+    if (!menu) return;
+    var set = function (open) { menu.hidden = !open; b.setAttribute("aria-expanded", open ? "true" : "false"); };
+    b.addEventListener("click", function (e) { e.stopPropagation(); set(menu.hidden); });
+    document.addEventListener("click", function (e) { if (!menu.contains(e.target)) set(false); });
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape") set(false); });
+  });
+
   /* recordings: each plays from the start when it enters the viewport and pauses when it leaves */
   var clips = document.querySelectorAll("video[data-play-in-view]");
   if (clips.length && !reduced && "IntersectionObserver" in window) {

@@ -61,7 +61,7 @@ nav.site a.zero:hover{color:#fff}
   font-family:var(--cond);font-weight:500;font-size:12px;letter-spacing:.26em;text-transform:uppercase;
   color:var(--ivory-dim);padding:6px 0 4px;border-bottom:1px solid var(--hair);
 }
-@media (max-width:900px){
+@media (max-width:1120px){
   .menu{display:inline-block}
   nav.site{display:none}
   body.nav-open{overflow:hidden}
@@ -359,3 +359,20 @@ footer.site a.mail{text-transform:none;letter-spacing:.04em;font-family:var(--mo
   *{transition:none!important;animation:none!important}
   html{scroll-behavior:auto}
 }
+
+/* Engage: anchored offers clear the fixed header; the targeted pair is outlined */
+.offer{scroll-margin-top:120px;transition:box-shadow .3s}
+.offer:target,#terms:target~#profile,#closed:target~#reconstruction{box-shadow:0 0 0 1px var(--brass)}
+/* Research dropdown */
+.drop{position:relative;display:inline-block}
+.drop-btn{font-family:var(--cond);font-weight:500;font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:var(--ivory-dim);background:none;border:0;border-bottom:1px solid transparent;padding:6px 0 4px;cursor:pointer}
+.drop-btn:hover,.drop-btn[aria-expanded="true"]{color:#fff}
+.drop-btn.current{color:#fff;border-bottom-color:var(--brass)}
+.drop-menu{position:absolute;top:100%;left:0;margin-top:6px;min-width:230px;display:flex;flex-direction:column;gap:2px;padding:6px 0 0;background:transparent;border:0;z-index:45}
+nav.site .drop-menu a{text-shadow:0 1px 10px rgba(0,0,0,.9),0 0 2px rgba(0,0,0,.9)}
+.drop-menu[hidden]{display:none}
+nav.site .drop-menu a{padding:7px 0 7px 10px;border-bottom:0;font-size:12px;letter-spacing:.16em}
+body.nav-open .drop-btn{font-family:var(--didot);font-style:italic;font-weight:500;font-size:clamp(32px,8.5vw,54px);letter-spacing:-.01em;text-transform:none;color:var(--ivory);border:0;padding:0}
+body.nav-open .drop-btn.current{color:var(--brass)}
+body.nav-open .drop-menu{position:static;margin:6px 0 0 4px;padding:0;min-width:0}
+body.nav-open nav.site .drop-menu a{font-size:clamp(20px,5.5vw,28px);padding:4px 0 4px 14px}
