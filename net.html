@@ -61,23 +61,16 @@
   @media (prefers-reduced-motion:reduce){.node .lit{animation:none!important}.node,.node.up{transition:none}.node.up{transform:scale(1.15)}}
   /* the stops */
   .rail{position:relative;margin-top:8px;--bw:clamp(215px,calc((100% - 88px)/5),300px)}
-  .line{position:relative;height:12px}
-  .line::before{content:"";position:absolute;left:0;right:0;top:5px;height:1px;background:var(--hair)}
-  .pt{position:absolute;top:0;left:calc(var(--i)*(100% - var(--bw))/6);width:12px;height:12px;padding:0;margin:0;border:0;border-radius:50%;background:var(--ivory-mute);opacity:.5;cursor:pointer;transition:background .5s,opacity .5s,box-shadow .5s}
-  .pt.done{background:var(--brass);opacity:.6}
-  .pt.lit{background:var(--c,var(--brass));opacity:.85}
-  .pt.now{background:var(--brass);opacity:1;box-shadow:0 0 0 5px rgba(201,168,119,.26)}
-  .pt:focus-visible{outline:2px solid var(--brass);outline-offset:3px}
   .stage{position:relative}
-  .stop{position:absolute;top:0;left:calc(var(--i)*(100% - var(--bw))/6);width:var(--bw);padding-top:18px;min-width:0;opacity:0;visibility:hidden;transition:opacity .4s ease,visibility 0s .4s}
-  .stop.now{opacity:1;visibility:visible;transition:opacity .5s ease .1s,visibility 0s}
+  .stop{position:absolute;top:0;left:calc(var(--i)*(100% - var(--bw))/6);width:var(--bw);padding-top:30px;min-width:0;opacity:0;visibility:hidden;transition:opacity .35s ease,visibility 0s .35s}
+  .stop.now{opacity:1;visibility:visible;transition:opacity .6s ease .3s,visibility 0s .3s}
+  .stop::after{content:"";position:absolute;left:0;right:0;top:11px;height:1px;background:var(--hair)}
+  .stop::before{content:"";position:absolute;left:0;top:6px;width:11px;height:11px;border-radius:50%;background:var(--c,var(--brass));box-shadow:0 0 0 5px color-mix(in srgb,var(--c,var(--brass)) 28%,transparent);z-index:1}
   .stop .d{font-family:var(--mono);font-size:11.5px;color:var(--brass);letter-spacing:.04em;margin-bottom:8px}
-  .stop h3{font-family:var(--didot);font-weight:500;font-size:21px;line-height:1.15;margin:0 0 10px;color:var(--ivory);text-wrap:balance}
+  .stop h3{font-family:var(--didot);font-weight:500;font-size:21px;line-height:1.15;margin:0 0 10px;color:var(--c,var(--brass));text-wrap:balance}
   .stop p{font-size:14.5px;line-height:1.5;margin:0 0 10px}
   .stop .by{font-family:var(--cond);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--ivory-mute)}
-  .stop.lit h3{color:var(--c,var(--brass))}
-  .stop.now h3{color:var(--brass)}
-  @media (prefers-reduced-motion:reduce){.stop,.stop.now{transition:none}.pt{transition:none}}
+  @media (prefers-reduced-motion:reduce){.stop,.stop.now{transition:none}}
   /* picker */
   .pick{display:flex;flex-wrap:wrap;gap:8px 8px;margin-top:4px}
   .pick button{font-family:var(--cond);font-weight:500;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--ivory-dim);background:transparent;border:1px solid var(--hair);padding:8px 13px;cursor:pointer;border-radius:0}
@@ -138,11 +131,7 @@
   @media (max-width:860px){
     .net .legend{grid-template-columns:minmax(0,1fr)}
     .flow{margin-bottom:18px}
-    .line{display:none}
-    .stop{left:0;width:100%;padding-top:30px}
-    .stop::after{content:"";position:absolute;left:0;right:0;top:11px;height:1px;background:var(--hair)}
-    .stop::before{content:"";position:absolute;left:0;top:6px;width:11px;height:11px;border-radius:50%;background:var(--brass);box-shadow:0 0 0 5px rgba(201,168,119,.26);z-index:1}
-    .stop.lit::before{background:var(--c,var(--brass))}
+    .stop{left:0;width:100%}
     .cols{grid-template-columns:minmax(0,1fr)}
     .col,.col+.col{padding:12px 0;border-left:0}
     .col+.col{border-top:1px dashed var(--hair-2,rgba(243,238,228,.08))}
@@ -235,13 +224,13 @@
 (function(){
 var NS="http://www.w3.org/2000/svg";
 var STOPS=[
- {d:"1 · Before the window",t:"Terms signed",p:"Both parties sign what is measured, the function that turns samples into a figure, the threshold, the credit table, the length of the review window, and what silence will cost. A digest fixes the text; nothing in it changes after this.",w:["Provider","Buyer"]},
- {d:"2 · After the window",t:"Measurements filed",p:"Each party files its own measurements under its own signature; evidence providers feed signed data. An interval with no data is declared, with its reason. Where the two sides differ, the divergence is computed and filed as a fact of its own.",w:["Provider","Buyer","Evidence providers"]},
- {d:"3",t:"The claim",p:"The provider files its delivery claim: the units, the window and the standard. PSYCHE seals the evidence behind it, every signed filing and every declared gap, into one PoR Capsule. Once sealed, the Capsule never changes, and anyone holding it can replay it. The claim carries no verdict.",w:["Provider"]},
- {d:"4",t:"The result",p:"Sigma, PSYCHE's verification engine, evaluates the PoR Capsule against the signed terms and returns one of four results: claim supported, claim not supported, requires review, evidence fault. An independent verifier can rerun Sigma on the same Capsule and sign whether its result matches. The result settles nothing.",w:["Sigma","Independent verifier"]},
- {d:"5 · Inside the review window",t:"The decision",p:"The buyer, or a delegate inside a grant the buyer issued, accepts, rejects or disputes. If the review window closes with no decision, the Case expires under the form both signed: nothing owed, the invoice stands, the remedy stands, or a stated amount.",w:["Buyer"]},
- {d:"6 · On accepted",t:"Money",p:"A payment instruction exists only once the Case is accepted, or expired under a form that states what is owed. Credits follow the signed table. A dispute holds the payment until it resolves.",w:["Payables","Buyer"]},
- {d:"7",t:"Final",p:"Corrections close first, then the quantity is final, then the money. The Case is sealed, and anyone who holds it, by grant, recomputes the same figure, the same credit and the same decision.",w:["Lender","Insurer","Auditor","Rating agency"]}
+ {d:"1 · Before the window",t:"Terms signed",p:"Both parties sign what is measured, the function that turns samples into a figure, the threshold, the credit table, the length of the review window, and what silence will cost. A digest fixes the text; nothing in it changes after this.",w:["Provider","Buyer"],c:"#C9A877"},
+ {d:"2 · After the window",t:"Measurements filed",p:"Each party files its own measurements under its own signature; evidence providers feed signed data. An interval with no data is declared, with its reason. Where the two sides differ, the divergence is computed and filed as a fact of its own.",w:["Provider","Buyer","Evidence providers"],c:"#6FD9EA"},
+ {d:"3",t:"The claim",p:"The provider files its delivery claim: the units, the window and the standard. PSYCHE seals the evidence behind it, every signed filing and every declared gap, into one PoR Capsule. Once sealed, the Capsule never changes, and anyone holding it can replay it. The claim carries no verdict.",w:["Provider"],c:"#E6B76A"},
+ {d:"4",t:"The result",p:"Sigma, PSYCHE's verification engine, evaluates the PoR Capsule against the signed terms and returns one of four results: claim supported, claim not supported, requires review, evidence fault. An independent verifier can rerun Sigma on the same Capsule and sign whether its result matches. The result settles nothing.",w:["Sigma","Independent verifier"],c:"#B7EA5E"},
+ {d:"5 · Inside the review window",t:"The decision",p:"The buyer, or a delegate inside a grant the buyer issued, accepts, rejects or disputes. If the review window closes with no decision, the Case expires under the form both signed: nothing owed, the invoice stands, the remedy stands, or a stated amount.",w:["Buyer"],c:"#7FD6C8"},
+ {d:"6 · On accepted",t:"Money",p:"A payment instruction exists only once the Case is accepted, or expired under a form that states what is owed. Credits follow the signed table. A dispute holds the payment until it resolves.",w:["Payables","Buyer"],c:"#FFD166"},
+ {d:"7",t:"Final",p:"Corrections close first, then the quantity is final, then the money. The Case is sealed, and anyone who holds it, by grant, recomputes the same figure, the same credit and the same decision.",w:["Lender","Insurer","Auditor","Rating agency"],c:"#C8A8FF"}
 ];
 var CORE=[
  {id:"provider",name:"Compute provider",verb:"delivers, files, claims",stops:[0,1,2,3,4,5],c:"#E6B76A"},
@@ -589,7 +578,6 @@ function drawFlow(){
     rds.forEach(function(d,i){if(phase===7)readTimers.push(setTimeout(function(){d.classList.add("on")},300+i*420));else d.classList.remove("on")});
     cap.textContent=phase?("ONE CASE · "+phase+" OF 7 · "+STOPS[phase-1].t.toUpperCase()):"ONE CASE · ONE WINDOW";
     var i=phase-1;
-    [].forEach.call(document.querySelectorAll("#rail .pt"),function(e){var j=+e.getAttribute("data-i");e.classList.toggle("now",j===i);e.classList.toggle("done",phase>0&&j<i);e.setAttribute("aria-selected",String(j===i))});
     if(phase)[].forEach.call(document.querySelectorAll("#rail .stop"),function(e){var on=+e.getAttribute("data-i")===i;e.classList.toggle("now",on);if(on)e.removeAttribute("aria-hidden");else e.setAttribute("aria-hidden","true")});
   }
   function step(){
@@ -606,21 +594,12 @@ function drawFlow(){
 if(NARROW&&NARROW.addEventListener)NARROW.addEventListener("change",function(){drawNet();drawFlow();sizeRail()});
 function go(id){show(id);var y=document.getElementById("pick").getBoundingClientRect().top+window.scrollY-110;window.scrollTo({top:y,behavior:"smooth"})}
 function drawRail(){
-  document.getElementById("rail").innerHTML=
-   '<div class="line" role="tablist" aria-label="Seven stops">'+STOPS.map(function(st,i){
-     return '<button type="button" class="pt'+(i?"":" now")+'" role="tab" data-i="'+i+'" style="--i:'+i+'" aria-selected="'+(!i)+'" aria-controls="stop-'+i+'" aria-label="'+esc(st.t)+'"></button>'}).join("")+'</div>'+
-   '<div class="stage">'+STOPS.map(function(st,i){
-     return '<article class="stop'+(i?"":" now")+'" id="stop-'+i+'" role="tabpanel" data-i="'+i+'" style="--i:'+i+'"'+(i?' aria-hidden="true"':'')+'><div class="d">'+esc(st.d)+'</div><h3>'+esc(st.t)+'</h3><p>'+esc(st.p)+'</p><div class="by">'+esc(st.w.join(" · "))+'</div></article>'}).join("")+'</div>';
-  var line=document.querySelector("#rail .line");
-  line.addEventListener("click",function(e){var b=e.target.closest(".pt");if(b&&flowCtl)flowCtl.go(+b.getAttribute("data-i")+1)});
-  line.addEventListener("keydown",function(e){var k=e.key==="ArrowRight"?1:e.key==="ArrowLeft"?-1:0;var b=e.target.closest(".pt");if(!k||!b)return;
-    var i=(+b.getAttribute("data-i")+k+7)%7;e.preventDefault();line.children[i].focus();if(flowCtl)flowCtl.go(i+1)});
+  document.getElementById("rail").innerHTML='<div class="stage">'+STOPS.map(function(st,i){
+     return '<article class="stop'+(i?"":" now")+'" id="stop-'+i+'" data-i="'+i+'" style="--i:'+i+';--c:'+st.c+'"'+(i?' aria-hidden="true"':'')+'><div class="d">'+esc(st.d)+'</div><h3>'+esc(st.t)+'</h3><p>'+esc(st.p)+'</p><div class="by">'+esc(st.w.join(" · "))+'</div></article>'}).join("")+'</div>';
   sizeRail();
   if(!drawRail.bound){drawRail.bound=true;var t;window.addEventListener("resize",function(){clearTimeout(t);t=setTimeout(sizeRail,120)});if(document.fonts&&document.fonts.ready)document.fonts.ready.then(sizeRail)}
 }
 function sizeRail(){var st=document.querySelector("#rail .stage");if(!st)return;var h=0;[].forEach.call(st.querySelectorAll(".stop"),function(e){h=Math.max(h,e.offsetHeight)});st.style.height=h+"px"}
-function lit(id){var n=ALL.filter(function(x){return x.id===id})[0];var set={};(n?n.stops:[]).forEach(function(i){set[i]=1});
-  [].forEach.call(document.querySelectorAll("#rail .pt, #rail .stop"),function(s){s.classList.toggle("lit",!!set[s.getAttribute("data-i")])})}
 function show(id){
   var n=ALL.filter(function(x){return x.id===id})[0];if(!n)return;var d=P[id];
   var li=function(a){return a.map(function(x){return "<li>"+esc(x)+"</li>"}).join("")};
@@ -631,9 +610,8 @@ function show(id){
    '<div class="col auto"><h4>The Case</h4><ol>'+li(d.auto)+'</ol></div></div>'+
    '<div class="gone"><b>No more</b>'+d.gone.map(function(x){return "<span>"+esc(x)+"</span>"}).join("")+'</div>';
   [].forEach.call(document.querySelectorAll("#pick button"),function(b){b.setAttribute("aria-pressed",String(b.getAttribute("data-id")===id))});
-  document.getElementById("rail").style.setProperty("--c",n.c);document.getElementById("panel").style.setProperty("--c",n.c);
+  document.getElementById("panel").style.setProperty("--c",n.c);
   netCurrent=id;markOn(id);
-  lit(id);
   try{history.replaceState(null,"","#"+id)}catch(e){}
 }
 drawNet();drawRail();drawFlow();
