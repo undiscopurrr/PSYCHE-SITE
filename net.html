@@ -229,7 +229,7 @@ var STOPS=[
  {d:"4",t:"The result",p:"Sigma, PSYCHE's verification engine, evaluates the PoR Capsule against the signed terms and returns one of four results: claim supported, claim not supported, requires review, evidence fault. An independent verifier can rerun Sigma on the same Capsule and sign whether its result matches. The result settles nothing.",w:["Sigma","Independent verifier"],c:"#B7EA5E"},
  {d:"5 · Inside the review window",t:"The decision",p:"The buyer, or a delegate inside a grant the buyer issued, accepts, rejects or disputes. If the review window closes with no decision, the Case expires under the form both signed: nothing owed, the invoice stands, the remedy stands, or a stated amount.",w:["Buyer"],c:"#7FD6C8"},
  {d:"6 · On accepted",t:"Money",p:"A payment instruction exists only once the Case is accepted, or expired under a form that states what is owed. Credits follow the signed table. A dispute holds the payment until it resolves.",w:["Payables","Buyer"],c:"#FFD166"},
- {d:"7",t:"Final",p:"Corrections close first, then the quantity is final, then the money. The Case is sealed, and anyone who holds it, by grant, recomputes the same figure, the same credit and the same decision.",w:["Lender","Insurer","Auditor","Rating agency"],c:"#C8A8FF"}
+ {d:"7",t:"Final",p:"Corrections close first, then the quantity is final, then the money. The Case is sealed, and anyone who holds it, by grant, recomputes the same final state.",w:["Lender","Insurer","Auditor","Rating agency"],c:"#C8A8FF"}
 ];
 var CORE=[
  {id:"provider",name:"Compute provider",verb:"delivers, files, claims",stops:[0,1,2,3,4,5],c:"#E6B76A"},
