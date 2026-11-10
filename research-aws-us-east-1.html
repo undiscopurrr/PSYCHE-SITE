@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>The us-east-1 Record — PSYCHE</title>
+<title>The us-east-1 Record · Cloud SLA credit records — PSYCHE · SQCD-1</title>
 <meta name="description" content="AWS us-east-1, October 2025: eight published outage windows, the per-account figure AWS's DynamoDB and Compute SLAs pay credits on, and what an SQCD-1 checklist finds missing. Public documents only; no finding on whether AWS met its SLAs.">
 <link rel="canonical" href="https://psyche-0.com/research-aws-us-east-1.html">
 <link rel="icon" href="favicon.svg?v=3" type="image/svg+xml">
@@ -20,9 +20,6 @@
 <meta property="article:author" content="Fée-Fée Yang">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@Undiscopurrr">
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Article","headline":"The us-east-1 record","description":"AWS us-east-1, October 2025, read against SQCD-1: the published windows, the per-account figure the SLAs pay credits on, and the fields the public record lacks.","author":{"@type":"Person","name":"Fée-Fée Yang"},"publisher":{"@type":"Organization","name":"PSYCHE","url":"https://psyche-0.com/"},"datePublished":"2026-11-06","dateModified":"2026-11-10","mainEntityOfPage":"https://psyche-0.com/research-aws-us-east-1.html","image":"https://psyche-0.com/assets/og.jpg"}
-</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,700;1,6..96,400;1,6..96,500;1,6..96,700&family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&display=swap">
@@ -46,6 +43,91 @@
   section a{color:var(--ivory-dim);word-break:break-word}
   .vh{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
 </style>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebSite",
+   "@id": "https://psyche-0.com/#website",
+   "url": "https://psyche-0.com/",
+   "name": "PSYCHE",
+   "alternateName": "psyche-0.com",
+   "publisher": {
+    "@id": "https://psyche-0.com/#organization"
+   },
+   "inLanguage": "en"
+  },
+  {
+   "@type": "Organization",
+   "@id": "https://psyche-0.com/#organization",
+   "name": "PSYCHE",
+   "url": "https://psyche-0.com/",
+   "logo": {
+    "@type": "ImageObject",
+    "url": "https://psyche-0.com/assets/logo-512.png"
+   },
+   "email": "purr@psyche-0.com",
+   "description": "PSYCHE keeps the record a delivery of contracted compute settles on. SQCD-1 is PSYCHE's open standard for that record.",
+   "founder": {
+    "@id": "https://psyche-0.com/about.html#person"
+   },
+   "sameAs": [
+    "https://github.com/undiscopurrr/PSYCHE-FOUNDATIONS"
+   ]
+  },
+  {
+   "@type": "Person",
+   "@id": "https://psyche-0.com/about.html#person",
+   "name": "Fée-Fée Yang",
+   "alternateName": "Fee-Fee Yang",
+   "jobTitle": "Founder",
+   "worksFor": {
+    "@id": "https://psyche-0.com/#organization"
+   },
+   "url": "https://psyche-0.com/about.html",
+   "sameAs": [
+    "https://x.com/Undiscopurrr"
+   ]
+  },
+  {
+   "@type": "WebPage",
+   "@id": "https://psyche-0.com/research-aws-us-east-1.html#webpage",
+   "url": "https://psyche-0.com/research-aws-us-east-1.html",
+   "name": "The us-east-1 Record · Cloud SLA credit records — PSYCHE · SQCD-1",
+   "isPartOf": {
+    "@id": "https://psyche-0.com/#website"
+   },
+   "publisher": {
+    "@id": "https://psyche-0.com/#organization"
+   },
+   "inLanguage": "en",
+   "description": "AWS us-east-1, October 2025: eight published outage windows, the per-account figure AWS's DynamoDB and Compute SLAs pay credits on, and what an SQCD-1 checklist finds missing. Public documents only; no finding on whether AWS met its SLAs."
+  },
+  {
+   "@type": "Article",
+   "@id": "https://psyche-0.com/research-aws-us-east-1.html#article",
+   "headline": "The us-east-1 record",
+   "description": "AWS us-east-1, October 2025, read against SQCD-1: the published windows, the per-account figure the SLAs pay credits on, and the fields the public record lacks.",
+   "author": {
+    "@id": "https://psyche-0.com/about.html#person"
+   },
+   "publisher": {
+    "@id": "https://psyche-0.com/#organization"
+   },
+   "datePublished": "2026-11-06",
+   "dateModified": "2026-11-10",
+   "mainEntityOfPage": {
+    "@id": "https://psyche-0.com/research-aws-us-east-1.html#webpage"
+   },
+   "inLanguage": "en",
+   "about": {
+    "@id": "https://psyche-0.com/sqcd-1.html#sqcd-1"
+   }
+  }
+ ]
+}
+</script>
 </head>
 <body>
 <header class="site"><div class="bar">
@@ -189,6 +271,7 @@ replay digest  sha256:3be59ef94288c8060734f83390ce8a7d1572cd6262964c57359caa6db1
 <footer class="site"><div class="fw"><div class="fl">
   <a href="https://x.com/Undiscopurrr">X</a>
   <a href="https://github.com/undiscopurrr/PSYCHE-FOUNDATIONS">GitHub</a>
+  <a href="questions.html">Questions</a>
   <a class="mail" href="mailto:purr@psyche-0.com">purr@psyche-0.com</a>
   <span>psyche-0.com</span>
 </div></div></footer>

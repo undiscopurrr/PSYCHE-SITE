@@ -1,0 +1,48 @@
+# PSYCHE
+
+> PSYCHE keeps the record a delivery of contracted compute settles on. SQCD-1, Settlement Quality Compute Data, is PSYCHE's open standard for that record, and anyone holding a record can recompute it.
+
+PSYCHE, at psyche-0.com, issues SQCD-1. Its founder is Fée-Fée Yang, also written Fee-Fee Yang. PSYCHE's email is purr@psyche-0.com.
+
+Contracted compute is GPU capacity rented under a contract that runs for years and pays by the month. Each month the money turns on three facts: what was delivered, whether it met the terms, and whether the buyer accepted it. PSYCHE keeps them as one record per delivery window, called a Case, which both parties sign into and anyone holding it can recompute.
+
+Under SQCD-1, each party files its own signed measurements for every window, and an interval with no observation enters the record as a signed statement. Only the buyer's signed decision, or its delegate's under a grant, produces accepted. Silence ends a Case as expired, under a form both parties chose before the window. Lenders, insurers and auditors read a Case by an access grant one of the parties issued.
+
+## Standard
+
+- [SQCD-1](https://psyche-0.com/sqcd-1.html): the record a delivered compute hour settles on, Version 1.1, 2026-11-10
+- [SQCD-1 Recompute](https://psyche-0.com/recompute.html): SQCD-1's worked month recomputed in the browser: each Filing Party's Period Figure under the declared function, the Divergence and the credit quoted on each filing
+- [SQCD-1 full standard, PDF](https://psyche-0.com/assets/sqcd-1-settlement-quality-compute-data.pdf)
+- [SQCD-1 brief, PDF](https://psyche-0.com/assets/sqcd-1-in-brief.pdf)
+- [SQCD-1 schemas, conformance vectors and registry](https://github.com/undiscopurrr/PSYCHE-FOUNDATIONS)
+
+## Delivery settlement
+
+- [The Case](https://psyche-0.com/net.html): the parties around one Case, its seven stops, and each party's job today and with PSYCHE
+- [Engage](https://psyche-0.com/engage.html): scopes and fees, including the network fee from the first production deployment: $3 per GPU per month, each side, and $1 for the first 24 months on contracts recorded before the end of 2028
+
+## Paper
+
+- [Signed in Advance](https://psyche-0.com/paper.html): Evidentiary Sufficiency and Settlement Authority in Contracted Compute Delivery, by Fée-Fée Yang, October 2026 ([PDF](https://psyche-0.com/assets/yang-signed-in-advance.pdf))
+
+## Research
+
+- [The acceptance gate](https://psyche-0.com/research-acceptance-gates.html): a clause-by-clause map of ten AI compute customer contracts and two financing arrangements filed with the SEC ([source ledger, CSV, CC BY 4.0](https://psyche-0.com/assets/acceptance-gate-ledger-2026-10.csv))
+- [The us-east-1 record](https://psyche-0.com/research-aws-us-east-1.html): the public record of AWS us-east-1, October 2025, read against SQCD-1
+
+## Questions
+
+- [How does a lender confirm that financed GPUs were delivered and accepted?](https://psyche-0.com/how-lenders-confirm-gpu-delivery.html)
+- [What record does a GPU SLA credit claim need?](https://psyche-0.com/gpu-sla-credit-records.html)
+- [How is acceptance of contracted GPU compute recorded?](https://psyche-0.com/accepting-contracted-compute.html)
+- [Does silence count as acceptance in a GPU contract?](https://psyche-0.com/does-silence-count-as-acceptance.html)
+- [What happens when a GPU provider's uptime figure and the customer's differ?](https://psyche-0.com/when-uptime-figures-differ.html)
+- [What is SQCD-1?](https://psyche-0.com/what-is-sqcd-1.html)
+
+## Public record
+
+- [Comment CFTC-2026-1850-0091](https://www.regulations.gov/comment/CFTC-2026-1850-0091): Fée-Fée Yang's comment on the CFTC's Request for Comment on the Listing of Compute Derivatives Contracts, submitted in her own name and in the name of PSYCHE
+
+## Founder
+
+- [Fée-Fée Yang](https://psyche-0.com/about.html): founder of PSYCHE, on X as [@Undiscopurrr](https://x.com/Undiscopurrr)

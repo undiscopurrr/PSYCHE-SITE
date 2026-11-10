@@ -1,13 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://psyche-0.com/</loc></url>
-  <url><loc>https://psyche-0.com/about.html</loc></url>
-  <url><loc>https://psyche-0.com/net.html</loc></url>
-  <url><loc>https://psyche-0.com/missions.html</loc></url>
-  <url><loc>https://psyche-0.com/intelligence.html</loc></url>
-  <url><loc>https://psyche-0.com/sqcd-1.html</loc></url>
-  <url><loc>https://psyche-0.com/paper.html</loc></url>
-  <url><loc>https://psyche-0.com/engage.html</loc></url>
-  <url><loc>https://psyche-0.com/research-acceptance-gates.html</loc></url>
-  <url><loc>https://psyche-0.com/research-aws-us-east-1.html</loc></url>
+  <url><loc>https://psyche-0.com/</loc><lastmod>2026-11-10</lastmod></url>
+  <url><loc>https://psyche-0.com/net.html</loc><lastmod>2026-11-10</lastmod></url>
+  <url><loc>https://psyche-0.com/sqcd-1.html</loc><lastmod>2026-11-10</lastmod></url>
+  <url><loc>https://psyche-0.com/recompute.html</loc><lastmod>2026-11-10</lastmod></url>
+  <url><loc>https://psyche-0.com/paper.html</loc><lastmod>2026-11-10</lastmod></url>
+  <url><loc>https://psyche-0.com/research-acceptance-gates.html</loc><lastmod>2026-11-10</lastmod></url>
+  <url><loc>https://psyche-0.com/research-aws-us-east-1.html</loc><lastmod>2026-11-10</lastmod></url>
+  <url><loc>https://psyche-0.com/questions.html</loc><lastmod>2026-11-10</lastmod></url>
+  <url><loc>https://psyche-0.com/how-lenders-confirm-gpu-delivery.html</loc><lastmod>2026-11-10</lastmod></url>
+  <url><loc>https://psyche-0.com/gpu-sla-credit-records.html</loc><lastmod>2026-11-10</lastmod></url>
+  <url><loc>https://psyche-0.com/accepting-contracted-compute.html</loc><lastmod>2026-11-10</lastmod></url>
+  <url><loc>https://psyche-0.com/does-silence-count-as-acceptance.html</loc><lastmod>2026-11-10</lastmod></url>
+  <url><loc>https://psyche-0.com/when-uptime-figures-differ.html</loc><lastmod>2026-11-10</lastmod></url>
+  <url><loc>https://psyche-0.com/what-is-sqcd-1.html</loc><lastmod>2026-11-10</lastmod></url>
+  <url><loc>https://psyche-0.com/engage.html</loc><lastmod>2026-11-10</lastmod></url>
+  <url><loc>https://psyche-0.com/missions.html</loc><lastmod>2026-11-10</lastmod></url>
+  <url><loc>https://psyche-0.com/intelligence.html</loc><lastmod>2026-11-10</lastmod></url>
+  <url><loc>https://psyche-0.com/map.html</loc><lastmod>2026-11-10</lastmod></url>
+  <url><loc>https://psyche-0.com/about.html</loc><lastmod>2026-11-10</lastmod></url>
 </urlset>

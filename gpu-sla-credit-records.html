@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What record does a GPU SLA credit claim need? — PSYCHE · SQCD-1</title>
+<meta name="description" content="Under SQCD-1, a GPU SLA credit turns on one figure per window. SQCD-1, PSYCHE's open standard, records the period function, both parties' samples and every interval nobody observed, so someone with no account on either side can recompute each party's figure.">
+<link rel="canonical" href="https://psyche-0.com/gpu-sla-credit-records.html">
+<link rel="icon" href="favicon.svg?v=3" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png?v=3" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png?v=3">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="PSYCHE">
+<meta property="og:title" content="What record does a GPU SLA credit claim need?">
+<meta property="og:description" content="Under SQCD-1, a GPU SLA credit turns on one figure per window. SQCD-1, PSYCHE's open standard, records the period function, both parties' samples and every interval nobody observed, so someone with no account on either side can recompute each party's figure.">
+<meta property="og:url" content="https://psyche-0.com/gpu-sla-credit-records.html">
+<meta property="og:image" content="https://psyche-0.com/assets/og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@Undiscopurrr">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,700;1,6..96,400;1,6..96,500;1,6..96,700&family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,400&display=swap">
+<link rel="stylesheet" href="assets/style.css?v=20261026c">
+<style>
+  .qa .pagehead h1{font-size:clamp(34px,4.6vw,62px);line-height:1.05;max-width:22ch}
+  .qa .lede{max-width:46rem}
+  section p{color:var(--ivory-dim);max-width:46rem}
+  section p b{color:var(--ivory);font-weight:500}
+  section a{color:var(--ivory-dim)}
+  .list{margin:0 0 16px;padding-left:22px;color:var(--ivory-dim);max-width:46rem}
+  .list li{margin-bottom:12px}
+  .list b{color:var(--ivory);font-weight:500}
+  .qlist{list-style:none;margin:0;padding:0;max-width:46rem}
+  .qlist li{border-top:1px solid var(--hair);padding:18px 0}
+  .qlist a{font-family:var(--didot);font-size:clamp(21px,2.2vw,27px);line-height:1.25;color:var(--ivory);text-decoration:none}
+  .qlist a:hover{color:var(--brass)}
+</style>
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebSite",
+   "@id": "https://psyche-0.com/#website",
+   "url": "https://psyche-0.com/",
+   "name": "PSYCHE",
+   "alternateName": "psyche-0.com",
+   "publisher": {
+    "@id": "https://psyche-0.com/#organization"
+   },
+   "inLanguage": "en"
+  },
+  {
+   "@type": "Organization",
+   "@id": "https://psyche-0.com/#organization",
+   "name": "PSYCHE",
+   "url": "https://psyche-0.com/",
+   "logo": {
+    "@type": "ImageObject",
+    "url": "https://psyche-0.com/assets/logo-512.png"
+   },
+   "email": "purr@psyche-0.com",
+   "description": "PSYCHE keeps the record a delivery of contracted compute settles on. SQCD-1 is PSYCHE's open standard for that record.",
+   "founder": {
+    "@id": "https://psyche-0.com/about.html#person"
+   },
+   "sameAs": [
+    "https://github.com/undiscopurrr/PSYCHE-FOUNDATIONS"
+   ]
+  },
+  {
+   "@type": "Person",
+   "@id": "https://psyche-0.com/about.html#person",
+   "name": "Fée-Fée Yang",
+   "alternateName": "Fee-Fee Yang",
+   "jobTitle": "Founder",
+   "worksFor": {
+    "@id": "https://psyche-0.com/#organization"
+   },
+   "url": "https://psyche-0.com/about.html",
+   "sameAs": [
+    "https://x.com/Undiscopurrr"
+   ]
+  },
+  {
+   "@type": "FAQPage",
+   "@id": "https://psyche-0.com/gpu-sla-credit-records.html#webpage",
+   "url": "https://psyche-0.com/gpu-sla-credit-records.html",
+   "name": "What record does a GPU SLA credit claim need? — PSYCHE · SQCD-1",
+   "isPartOf": {
+    "@id": "https://psyche-0.com/#website"
+   },
+   "publisher": {
+    "@id": "https://psyche-0.com/#organization"
+   },
+   "inLanguage": "en",
+   "description": "Under SQCD-1, a GPU SLA credit turns on one figure per window. SQCD-1, PSYCHE's open standard, records the period function, both parties' samples and every interval nobody observed, so someone with no account on either side can recompute each party's figure.",
+   "mainEntity": [
+    {
+     "@type": "Question",
+     "name": "What record does a GPU SLA credit claim need?",
+     "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Under SQCD-1, an SLA credit turns on one figure per window, computed from samples under a function both parties named before the window opened. SQCD-1 records the function, both parties' samples and every interval nobody observed, so someone with no account on either side can recompute each party's figure."
+     }
+    }
+   ],
+   "about": {
+    "@id": "https://psyche-0.com/sqcd-1.html#sqcd-1"
+   }
+  }
+ ]
+}
+</script>
+</head>
+<body class="qa">
+<header class="site"><div class="bar">
+  <a class="mark" href="index.html">PSYCHE</a>
+  <button class="menu" type="button" aria-expanded="false" aria-controls="nav">Menu</button>
+  <nav class="site" id="nav">
+    <a href="index.html">Overview</a>
+    <a href="net.html">Net</a>
+    <a href="missions.html">Missions</a>
+    <a href="intelligence.html">Intelligence</a>
+    <a href="sqcd-1.html">SQCD-1</a>
+    <a href="paper.html">Paper</a>
+    <div class="drop"><button type="button" class="drop-btn" aria-expanded="false" aria-controls="drop-research">Research</button><div class="drop-menu" id="drop-research" hidden><a href="research-acceptance-gates.html">The acceptance gate</a><a href="research-aws-us-east-1.html">The us-east-1 record</a></div></div>
+    <a href="engage.html">Engage</a>
+    <a href="about.html">Who</a>
+    <a class="zero" href="map.html">PSYCHE-0 · Map</a>
+  </nav>
+</div></header>
+
+<div class="wrap">
+  <div class="pagehead">
+    <p class="kicker">Questions · Compute buyers</p>
+    <h1>What record does a GPU SLA credit claim need?</h1>
+    <p class="lede">Under SQCD-1, an SLA credit turns on one figure per window, computed from samples under a function both parties named before the window opened. SQCD-1 records the function, both parties' samples and every interval nobody observed, so someone with no account on either side can recompute each party's figure.</p>
+  </div>
+
+  <section>
+    <div class="sec-label"><span>Credits today</span><span>SQCD-1 §2 · Public SLAs</span></div>
+    <p>SQCD-1 §2 cites a practitioner guide to cloud service agreements, which describes the credit process as one in which the customer supplies proof of the outage and <q>the CSP reviews the claims and makes a final, unilateral judgment on service credits</q>.</p>
+    <p>AWS's DynamoDB and Compute SLAs pay credits on one account's own monthly figure. For a claimed credit, the customer computes that figure from its own request logs and AWS confirms it.</p>
+    <p>Both SLAs require request logs with a claim and set no method or cadence for keeping them.</p>
+  </section>
+
+  <section>
+    <div class="sec-label"><span>Fixed before the window</span><span>SQCD-1 §1 · §A</span></div>
+    <p>The agreement sets its availability target, price and remedy schedule, and SQCD-1 requires each to be identified and fixed before the window opens.</p>
+    <ul class="list">
+      <li>A2 names the metric and the function that turns samples into a Period Figure.</li>
+      <li>A4 lists the exclusions, each with the evidence required to invoke it.</li>
+      <li>A5 states the shortfall that contributes nothing and the level at which the obligation is missed.</li>
+      <li>A7 references the remedy schedule that converts a shortfall into money.</li>
+      <li>A10 commits A1 through A9 under one digest, carried in an event that precedes the window.</li>
+    </ul>
+    <blockquote class="quote"><p>Two parties averaging differently will produce different months from identical samples.</p></blockquote>
+  </section>
+
+  <section>
+    <div class="sec-label"><span>After the window</span><span>SQCD-1 §I.1 · H4</span></div>
+    <p>Days are business days after the window closes, unless the agreement states otherwise.</p>
+    <ul class="list">
+      <li>By W+2, each party files its measurements and declares its missing intervals.</li>
+      <li>By W+5, the divergence between the two parties' figures is computed.</li>
+      <li>By W+7, the delivery claim is filed.</li>
+      <li>By W+12, the buyer's decision is due.</li>
+      <li>At W+30, the correction window closes; the Case decided at W+12 stands, and the difference a correction establishes is claimed by the party it favors as a credit Claim under the agreement's credit terms, or recorded as an amendment both parties sign.</li>
+      <li>At W+45, the quantity is final, and at W+90, the money is final.</li>
+    </ul>
+    <p>Where the parties' figures differ by more than the materiality threshold, a Divergence Event names the first interval at which their series part.</p>
+    <div class="row-cta"><a class="ghost" href="when-uptime-figures-differ.html">Divergent figures</a><a class="ghost" href="research-aws-us-east-1.html">The us-east-1 record</a><a class="ghost" href="sqcd-1.html">SQCD-1</a><a class="ghost" href="questions.html">More questions</a></div>
+  </section>
+</div>
+
+<footer class="site"><div class="fw"><div class="fl">
+  <a href="https://x.com/Undiscopurrr">X</a>
+  <a href="https://github.com/undiscopurrr/PSYCHE-FOUNDATIONS">GitHub</a>
+  <a href="questions.html">Questions</a>
+  <a class="mail" href="mailto:purr@psyche-0.com">purr@psyche-0.com</a>
+  <span>psyche-0.com</span>
+</div></div></footer>
+<script src="assets/console.js?v=20261026a"></script>
+<script src="assets/anemone.js?v=20261106a" defer></script>
+</body>
+</html>

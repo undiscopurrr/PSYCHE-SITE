@@ -3,8 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>PSYCHE</title>
-<meta name="description" content="Settlement and Intelligence for contracted compute.">
+<title>PSYCHE · SQCD-1 · Settlement and Intelligence for contracted GPU compute</title>
+<meta name="description" content="PSYCHE keeps the record a delivery of contracted compute settles on. SQCD-1 is its open standard: both parties sign the record, the buyer signs its decision on each delivery claim or the Case expires, and anyone holding the record can recompute it.">
+<link rel="canonical" href="https://psyche-0.com/">
 <link rel="icon" href="favicon.svg?v=3" type="image/svg+xml">
 <link rel="icon" href="favicon-32.png?v=3" type="image/png" sizes="32x32">
 <link rel="apple-touch-icon" href="apple-touch-icon.png?v=3">
@@ -12,6 +13,7 @@
 <meta property="og:site_name" content="PSYCHE">
 <meta property="og:title" content="PSYCHE">
 <meta property="og:description" content="Settlement and Intelligence for contracted compute.">
+<meta property="og:url" content="https://psyche-0.com/">
 <meta property="og:image" content="https://psyche-0.com/assets/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@Undiscopurrr">
@@ -21,20 +23,66 @@
 <link rel="stylesheet" href="assets/style.css?v=20261026c">
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  "@id": "https://psyche-0.com/#organization",
-  "name": "PSYCHE",
-  "url": "https://psyche-0.com/",
-  "founder": {
-    "@type": "Person",
-    "@id": "https://psyche-0.com/about.html#person",
-    "name": "Fée-Fée Yang",
-    "url": "https://psyche-0.com/about.html",
-    "sameAs": [
-      "https://x.com/Undiscopurrr"
-    ]
+ "@context": "https://schema.org",
+ "@graph": [
+  {
+   "@type": "WebSite",
+   "@id": "https://psyche-0.com/#website",
+   "url": "https://psyche-0.com/",
+   "name": "PSYCHE",
+   "alternateName": "psyche-0.com",
+   "publisher": {
+    "@id": "https://psyche-0.com/#organization"
+   },
+   "inLanguage": "en"
+  },
+  {
+   "@type": "Organization",
+   "@id": "https://psyche-0.com/#organization",
+   "name": "PSYCHE",
+   "url": "https://psyche-0.com/",
+   "logo": {
+    "@type": "ImageObject",
+    "url": "https://psyche-0.com/assets/logo-512.png"
+   },
+   "email": "purr@psyche-0.com",
+   "description": "PSYCHE keeps the record a delivery of contracted compute settles on. SQCD-1 is PSYCHE's open standard for that record.",
+   "founder": {
+    "@id": "https://psyche-0.com/about.html#person"
+   },
+   "sameAs": [
+    "https://github.com/undiscopurrr/PSYCHE-FOUNDATIONS"
+   ]
+  },
+  {
+   "@type": "Person",
+   "@id": "https://psyche-0.com/about.html#person",
+   "name": "Fée-Fée Yang",
+   "alternateName": "Fee-Fee Yang",
+   "jobTitle": "Founder",
+   "worksFor": {
+    "@id": "https://psyche-0.com/#organization"
+   },
+   "url": "https://psyche-0.com/about.html",
+   "sameAs": [
+    "https://x.com/Undiscopurrr"
+   ]
+  },
+  {
+   "@type": "WebPage",
+   "@id": "https://psyche-0.com/#webpage",
+   "url": "https://psyche-0.com/",
+   "name": "PSYCHE · SQCD-1 · Settlement and Intelligence for contracted GPU compute",
+   "isPartOf": {
+    "@id": "https://psyche-0.com/#website"
+   },
+   "publisher": {
+    "@id": "https://psyche-0.com/#organization"
+   },
+   "inLanguage": "en",
+   "description": "PSYCHE keeps the record a delivery of contracted compute settles on. SQCD-1 is its open standard: both parties sign the record, the buyer signs its decision on each delivery claim or the Case expires, and anyone holding the record can recompute it."
   }
+ ]
 }
 </script>
 </head>
@@ -78,6 +126,7 @@
 <footer class="site"><div class="fw"><div class="fl">
   <a href="https://x.com/Undiscopurrr">X</a>
   <a href="https://github.com/undiscopurrr/PSYCHE-FOUNDATIONS">GitHub</a>
+  <a href="questions.html">Questions</a>
   <a class="mail" href="mailto:purr@psyche-0.com">purr@psyche-0.com</a>
   <span>psyche-0.com</span>
 </div></div></footer>
