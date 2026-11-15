@@ -10,7 +10,7 @@ Under SQCD-1, each party files its own signed measurements for every window, and
 
 ## Standard
 
-- [SQCD-1](https://psyche-0.com/sqcd-1.html): the record a delivered compute hour settles on, Version 1.1, 2026-11-10
+- [SQCD-1](https://psyche-0.com/sqcd-1.html): the record a delivered compute hour settles on, Version 1.2, 2026-11-15
 - [SQCD-1 Recompute](https://psyche-0.com/recompute.html): SQCD-1's worked month recomputed in the browser: each Filing Party's Period Figure under the declared function, the Divergence and the credit quoted on each filing
 - [SQCD-1 full standard, PDF](https://psyche-0.com/assets/sqcd-1-settlement-quality-compute-data.pdf)
 - [SQCD-1 brief, PDF](https://psyche-0.com/assets/sqcd-1-in-brief.pdf)
