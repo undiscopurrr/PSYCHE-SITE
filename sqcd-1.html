@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SQCD-1 · Open standard for compute delivery records — PSYCHE</title>
-<meta name="description" content="SQCD-1, Settlement Quality Compute Data, is PSYCHE's open standard for the record a delivered compute hour settles on, which carries both parties' signed measurements, the buyer's decision and the dates to money finality. Version 1.2 is dated 15 November 2026.">
+<meta name="description" content="SQCD-1, Settlement Quality Compute Data, is PSYCHE's open standard for the record a delivered compute hour settles on, which carries both parties' signed measurements, the counterparty's decision and the dates to money finality. Version 1.2 is dated 15 November 2026.">
 <link rel="canonical" href="https://psyche-0.com/sqcd-1.html">
 <link rel="icon" href="favicon.svg?v=3" type="image/svg+xml">
 <link rel="icon" href="favicon-32.png?v=3" type="image/png" sizes="32x32">
@@ -80,7 +80,7 @@
     "@id": "https://psyche-0.com/#organization"
    },
    "inLanguage": "en",
-   "description": "SQCD-1, Settlement Quality Compute Data, is PSYCHE's open standard for the record a delivered compute hour settles on, which carries both parties' signed measurements, the buyer's decision and the dates to money finality. Version 1.2 is dated 15 November 2026.",
+   "description": "SQCD-1, Settlement Quality Compute Data, is PSYCHE's open standard for the record a delivered compute hour settles on, which carries both parties' signed measurements, the counterparty's decision and the dates to money finality. Version 1.2 is dated 15 November 2026.",
    "mainEntity": {
     "@id": "https://psyche-0.com/sqcd-1.html#sqcd-1"
    }
@@ -181,7 +181,7 @@
   <section>
     <div class="sec-label"><span>Completeness</span><span>§4.6</span></div>
     <blockquote class="quote">
-      <p>Give the record to someone who was absent and holds no account on either side. If the Period Figure, the shortfall and the amount owed all come out, and each traces to a named field, the record is complete.</p>
+      <p>Give the record to someone who was absent and holds no account on either side. If the Period Figure, the shortfall and the amount owed all come out, and each traces to a named field, the record is complete; where a Divergence is carried to decision under Annex 2.7, each candidate figure and the amount it would owe come out, each with its basis.</p>
     </blockquote>
   </section>
 
@@ -205,8 +205,8 @@
   <section>
     <div class="sec-label"><span>The record</span><span>Six field groups</span></div>
     <div class="field"><span class="l rg">A</span><div><p class="t">Contract Standard</p><p>The clause the record answers to; the metric and the <b>named</b> function that turns samples into a period figure; the window; the exclusions; the thresholds; the Grade Class over nine dimensions; the verifiability tier of every field; and one digest over all of it, filed <b>before the window opens</b>.</p></div></div>
-    <div class="field"><span class="l rg">B</span><div><p class="t">Measurements</p><p>Channel, samples, measured subject, instrument, clock source, aggregation, and the layer the series observes at. An interval counts as delivered on every covered layer at once.</p></div></div>
-    <div class="field"><span class="l rg">C</span><div><p class="t">Missing Intervals</p><p>Every interval nobody observed: declared, attributed, valued. The <b>Unresolved Fraction</b> and the <b>Unilateral Fraction</b> stand on the face of the record.</p></div></div>
+    <div class="field"><span class="l rg">B</span><div><p class="t">Measurements</p><p>Channel, samples, measured subject, instrument, clock source, aggregation, and the layer the series observes at. An interval counts as delivered only where every covered layer conformed at once.</p></div></div>
+    <div class="field"><span class="l rg">C</span><div><p class="t">Missing Intervals</p><p>Every interval a party did not observe: declared, attributed, valued. The <b>Unresolved Fraction</b> and the <b>Unilateral Fraction</b> stand on the face of the record.</p></div></div>
     <div class="field"><span class="l rg">D</span><div><p class="t">Provenance</p><p>Filing party and key, source class, the independence of trust roots, and a signature over the filed set.</p></div></div>
     <div class="field"><span class="l rg">E</span><div><p class="t">Temporal Binding</p><p>Signing time as claimed, and an inclusion proof against a published log head.</p></div></div>
     <div class="field"><span class="l rg">F</span><div><p class="t">Claim and Decision</p><p>The delivery claim; the counterparty’s decision; the authority it was signed under. <b>The decision alone produces acceptance.</b></p></div></div>
@@ -216,7 +216,6 @@
   <div class="fine">
     <p>Adopted by reference (§0.1): <q>This Agreement incorporates SQCD-1, Version 1.2, identified by the digest published with it, as issued by PSYCHE, and no later version.</q></p>
     <p>Version 1.2 digest, SHA-256 of the full standard PDF: <span class="digest">6e3a25e0c0bb292c2ec76acca3279cfce9472764bde5a278ab648f0617e14de4</span></p>
-    <p>Version 1.1 remains deposited as issued, with its errata record, at <a href="https://github.com/undiscopurrr/PSYCHE-FOUNDATIONS/tree/main/versions/1.1">PSYCHE-FOUNDATIONS/versions/1.1</a>.</p>
     <p>Text under CC BY-ND 4.0; forms, schemas and conformance vectors under a permissive licence. Where this page and the standard disagree, the standard governs.</p>
   </div>
 </div>
