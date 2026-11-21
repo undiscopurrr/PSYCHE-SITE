@@ -5,7 +5,7 @@
 (function (root) {
   'use strict';
 
-  var VECTORS_VERSION = '1.1';
+  var VECTORS_VERSION = '1.2';
   var LIMIT = 9007199254740992; // 2^53
   var MAX_DEPTH = 64;
   var MAX_DIGITS = 15;
@@ -18,7 +18,7 @@
   var MATERIALITY = ['MT-01', 'MT-02', 'MT-03', 'MT-04', 'MT-05'];
   var CEILINGS = ['UC-01', 'UC-02', 'UC-03', 'UC-04'];
   var EXPIRY = ['EX-01', 'EX-02', 'EX-03', 'EX-04'];
-  var FAULTS = ['EF-01', 'EF-02', 'EF-03', 'EF-04', 'EF-05', 'EF-06', 'EF-07'];
+  var FAULTS = ['EF-02', 'EF-03', 'EF-04', 'EF-05', 'EF-06', 'EF-07'];   // version 1.2 retired EF-01
   var SUBSTITUTION = ['SB-01', 'SB-02', 'SB-03', 'SB-04', 'SB-05'];
   var RESOLUTION = ['DR-01', 'DR-02', 'DR-03', 'DR-04', 'DR-05', 'DR-06'];
   var LAYERS = ['L1', 'L2', 'L3', 'L4', 'L5', 'L6', 'L7', 'L8'];
@@ -370,7 +370,7 @@
     var expiry = get(std, 'I11_expiry_pricing');
     check(checks, 'expiry-pricing', 'I.1.1', pick(expiry, EXPIRY), text(expiry));
     var faultForm = form(get(std, 'J1_evidence_fault'));
-    check(checks, 'evidence-fault', 'J1', (faultForm === 'EF-01' || faultForm === 'EF-02' || faultForm === 'EF-03') ? null : pick(faultForm, FAULTS), faultForm); // 2.5.1 turns on an evidence holder the layout omits
+    check(checks, 'evidence-fault', 'J1', (faultForm === 'EF-02' || faultForm === 'EF-03') ? null : pick(faultForm, FAULTS), faultForm); // 2.5.1 turns on what each Filing Plan reads, which the layout omits
 
     // -- events
     var names = sortCP(Object.keys(events));
@@ -491,8 +491,7 @@
         missing.forEach(function (party) {
           faults.push({ event: item.name, party: party, clause: 'C5.5', subject_intervals: span });
         });
-      } else if (kind === 'unilateral') {
-        if (faultForm !== 'EF-04') throw new Stop('evidence-fault');
+      } else if (kind === 'unilateral') {   // C5.5: one party observed, any fault form, C5.1 assigns the value
         item.subjects.forEach(function (s) {
           unilateral[s] += count;
           if (item.reading === 'non-conforming') PARTIES.forEach(function (party) { nonconf[party][s] += count; }); // the observation that exists determines

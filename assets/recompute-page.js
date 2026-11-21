@@ -49,7 +49,7 @@
     ufLine: 'Unresolved Fraction = {u} ÷ {b} = {pct} %.',
     ufWithin: 'The fraction is within the {p} % ceiling under {form}.',
     ulLine: 'Unilateral Fraction = {u} ÷ {b} = {pct} %, stated as 4.4 requires.',
-    faultC54: '{event} is unilateral: only the {other} observed. C5.4 attributes its {n} subject-intervals to the {party}, and under EF-04 the {other}’s record, conforming, determines them.',
+    faultC54: '{event} is unilateral: only the {other} observed. C5.4 attributes its {n} subject-intervals to the {party}, and under C5.1 the {other}’s record, conforming, determines them.',
     // period figures
     'F-01': 'F-01 · Time-weighted availability, which Annex 2.1 defines as “Conforming interval-seconds divided by eligible interval-seconds in the Window, per Measured Subject, arithmetic mean across subjects.”',
     operator: 'Provider', customer: 'Customer',
