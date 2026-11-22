@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>How does a lender confirm that financed GPUs were delivered and accepted? — PSYCHE · SQCD-1</title>
-<meta name="description" content="Under SQCD-1, PSYCHE's open standard, a lender confirms GPU delivery from a record both parties file, which carries terms fixed before its window, signed measurements, the delivery claim, and the buyer's signed decision or the Case's expiry.">
+<meta name="description" content="Under SQCD-1, PSYCHE's open standard, a lender confirms GPU delivery from a record both parties file, which carries terms fixed before its window, signed measurements, the delivery claim, and the counterparty's signed decision or the Case's expiry.">
 <link rel="canonical" href="https://psyche-0.com/how-lenders-confirm-gpu-delivery.html">
 <link rel="icon" href="favicon.svg?v=3" type="image/svg+xml">
 <link rel="icon" href="favicon-32.png?v=3" type="image/png" sizes="32x32">
@@ -12,7 +12,7 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="PSYCHE">
 <meta property="og:title" content="How does a lender confirm that financed GPUs were delivered and accepted?">
-<meta property="og:description" content="Under SQCD-1, PSYCHE's open standard, a lender confirms GPU delivery from a record both parties file, which carries terms fixed before its window, signed measurements, the delivery claim, and the buyer's signed decision or the Case's expiry.">
+<meta property="og:description" content="Under SQCD-1, PSYCHE's open standard, a lender confirms GPU delivery from a record both parties file, which carries terms fixed before its window, signed measurements, the delivery claim, and the counterparty's signed decision or the Case's expiry.">
 <meta property="og:url" content="https://psyche-0.com/how-lenders-confirm-gpu-delivery.html">
 <meta property="og:image" content="https://psyche-0.com/assets/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
@@ -79,7 +79,8 @@
    },
    "url": "https://psyche-0.com/about.html",
    "sameAs": [
-    "https://x.com/Undiscopurrr"
+    "https://x.com/Undiscopurrr",
+    "https://orcid.org/0009-0008-2701-4740"
    ]
   },
   {
@@ -94,14 +95,14 @@
     "@id": "https://psyche-0.com/#organization"
    },
    "inLanguage": "en",
-   "description": "Under SQCD-1, PSYCHE's open standard, a lender confirms GPU delivery from a record both parties file, which carries terms fixed before its window, signed measurements, the delivery claim, and the buyer's signed decision or the Case's expiry.",
+   "description": "Under SQCD-1, PSYCHE's open standard, a lender confirms GPU delivery from a record both parties file, which carries terms fixed before its window, signed measurements, the delivery claim, and the counterparty's signed decision or the Case's expiry.",
    "mainEntity": [
     {
      "@type": "Question",
      "name": "How does a lender confirm that financed GPUs were delivered and accepted?",
      "acceptedAnswer": {
       "@type": "Answer",
-      "text": "Under SQCD-1, PSYCHE's open standard for delivery records, a lender confirms delivery from a record both parties file. Each window's record carries terms fixed before the window, each party's signed measurements, the provider's delivery claim, and the buyer's signed decision or the Case's expiry. SQCD-1 counts a record complete when someone absent, with no account on either side, can recompute from it the Period Figure, the shortfall and the amount owed, each traced to a named field, and, where a Divergence is carried to decision, each candidate figure and the amount it would owe, each with its basis."
+      "text": "Under SQCD-1, PSYCHE's open standard for delivery records, a lender confirms delivery from a record both parties file. Each window's record carries terms fixed before the window, each party's signed measurements, the delivery claim, and the counterparty's signed decision or the Case's expiry. SQCD-1 counts a record complete when someone absent, with no account on either side, can recompute from it the Period Figure, the shortfall and the amount owed, each traced to a named field, and, where a Divergence is carried to decision, each candidate figure and the amount it would owe, each with its basis."
      }
     }
    ],
@@ -135,7 +136,7 @@
   <div class="pagehead">
     <p class="kicker">Questions · Lenders</p>
     <h1>How does a lender confirm that financed GPUs were delivered and accepted?</h1>
-    <p class="lede">Under SQCD-1, PSYCHE's open standard for delivery records, a lender confirms delivery from a record both parties file. Each window's record carries terms fixed before the window, each party's signed measurements, the provider's delivery claim, and the buyer's signed decision or the Case's expiry. SQCD-1 counts a record complete when someone absent, with no account on either side, can recompute from it the Period Figure, the shortfall and the amount owed, each traced to a named field, and, where a Divergence is carried to decision, each candidate figure and the amount it would owe, each with its basis.</p>
+    <p class="lede">Under SQCD-1, PSYCHE's open standard for delivery records, a lender confirms delivery from a record both parties file. Each window's record carries terms fixed before the window, each party's signed measurements, the delivery claim, and the counterparty's signed decision or the Case's expiry. SQCD-1 counts a record complete when someone absent, with no account on either side, can recompute from it the Period Figure, the shortfall and the amount owed, each traced to a named field, and, where a Divergence is carried to decision, each candidate figure and the amount it would owe, each with its basis.</p>
   </div>
 
   <section>
@@ -152,16 +153,16 @@
       <li><b class="lead">Terms.</b> The clause, its metric and named function, its window, exclusions, thresholds and remedy schedule reference sit under one digest filed before the window opens.</li>
       <li><b class="lead">Measurements.</b> The provider and the buyer each file their own series for every window, each under its own key.</li>
       <li><b class="lead">Grade.</b> A Grade Class names the kind of compute hour an obligation is for, from accelerator to software floor. A commencement reading establishes that each of the contracted Grade Class's fields the buyer can measure itself was delivered.</li>
-      <li><b class="lead">Decision.</b> Only the buyer's signed decision on the delivery claim, or its delegate's under a grant, produces accepted, and the record names the authority it was signed under.</li>
+      <li><b class="lead">Decision.</b> Only the counterparty's signed decision on the delivery claim, or its delegate's under a grant, produces accepted, and the record names the authority it was signed under.</li>
       <li><b class="lead">Silence.</b> A Case with no decision by its review deadline ends as expired, and the cost of expiry is a term the parties fixed before the window; the contract's own rule still decides acceptance.</li>
-      <li><b class="lead">Quarter.</b> Each quarter, a named officer of each filing party affirms in writing that its Filing Plan was implemented and followed in every window of the quarter, save the windows the officer identifies as exceptions. A party that failed to file for more than the unresolved ceiling across a quarter's windows may give no attestation for that quarter.</li>
+      <li><b class="lead">Quarter.</b> Each quarter, a named officer of each filing party affirms in writing that its Filing Plan was implemented and followed in every window of the quarter, save the windows the officer identifies as exceptions.</li>
     </ul>
     <p>SQCD-1 runs its covenant clock for whoever lent against the contract.</p>
   </section>
 
   <section>
     <div class="sec-label"><span>Reading under an access grant</span><span>SQCD-1 §K</span></div>
-    <p>A filing party may give a lender access to the filed record under an access grant, and each access grant names its lender, windows and duration.</p>
+    <p>A filing party may give a lender access to the filed record under an access grant, and each access grant names its lender, windows and duration, and whether later filings for those windows reach the lender.</p>
     <p>A record disclosed under an access grant carries its signatures and inclusion proofs, and the lender checks it on its own.</p>
     <p>Once a lender relies, under an access grant, on a filing with a valid signature and an inclusion proof, the party that made the filing may not rely on a contrary fact against the lender, unless it shows the lender had notice of the filing's non-conformity at the time of reliance.</p>
     <div class="row-cta"><a class="ghost" href="sqcd-1.html">SQCD-1</a><a class="ghost" href="research-acceptance-gates.html">The acceptance gate</a><a class="ghost" href="net.html">The Case</a><a class="ghost" href="questions.html">More questions</a></div>

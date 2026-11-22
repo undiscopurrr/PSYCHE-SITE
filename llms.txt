@@ -6,7 +6,7 @@ PSYCHE, at psyche-0.com, issues SQCD-1. Its founder is Fée-Fée Yang, also writ
 
 Contracted compute is GPU capacity rented under a contract that runs for years and pays by the month. Each month the money turns on three facts: what was delivered, whether it met the terms, and whether the buyer accepted it. PSYCHE keeps them as one record per delivery window, called a Case, which both parties sign into and anyone holding it can recompute.
 
-Under SQCD-1, each party files its own signed measurements for every window, and an interval with no observation enters the record as a signed statement. Only the buyer's signed decision, or its delegate's under a grant, produces accepted. Silence ends a Case as expired, under a form both parties chose before the window. Lenders, insurers and auditors read a Case by an access grant one of the parties issued.
+Under SQCD-1, each party files its own signed measurements for every window, and a party declares an interval it did not observe in a signed statement. Only the counterparty's signed decision, or its delegate's under a grant, produces accepted. Silence ends a Case as expired, under a form both parties chose before the window. Lenders, insurers and auditors read a Case by an access grant one of the parties issued.
 
 ## Standard
 

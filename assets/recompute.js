@@ -486,7 +486,7 @@
         item.subjects.forEach(function (s) { excluded[s] += count; });
       } else if (kind === 'unresolved') {
         var missing = PARTIES.filter(function (p) { return item.declared_by.indexOf(p) < 0; });
-        if (missing.length && faultForm !== 'EF-04' && faultForm !== 'EF-05') throw new Stop('evidence-fault');
+        if (missing.length && faultForm !== 'EF-04' && faultForm !== 'EF-05' && faultForm !== 'EF-06') throw new Stop('evidence-fault'); // Annex 2.5: EF-04, EF-05 and EF-06 each take the interval out of both terms
         item.subjects.forEach(function (s) { unresolved[s] += count; });
         missing.forEach(function (party) {
           faults.push({ event: item.name, party: party, clause: 'C5.5', subject_intervals: span });
