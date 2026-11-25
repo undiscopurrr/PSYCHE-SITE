@@ -28,6 +28,7 @@ Under SQCD-1, each party files its own signed measurements for every window, and
 ## Research
 
 - [The acceptance gate](https://psyche-0.com/research-acceptance-gates.html): a clause-by-clause map of ten AI compute customer contracts and two financing arrangements filed with the SEC ([source ledger, CSV, CC BY 4.0](https://psyche-0.com/assets/acceptance-gate-ledger-2026-10.csv))
+- [Acceptance Gate Monitor, No. 1](https://psyche-0.com/acceptance-gate-monitor-2026-11.html): November 2026 figures on contract value behind an acceptance gate, signed against delivered data-center capacity, and loans that wait on a customer's acceptance, each with its source
 - [The us-east-1 record](https://psyche-0.com/research-aws-us-east-1.html): the public record of AWS us-east-1, October 2025, read against SQCD-1
 
 ## Questions
